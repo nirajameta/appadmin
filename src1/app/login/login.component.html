@@ -1,0 +1,42 @@
+<section class="container-fluid">
+    <section class="login-form directionimg">
+      <section>
+        <img src="assets/image/logo.svg" alt="" />
+      </section>
+     
+
+      <div class="loginbox">
+        <div class="login-reg-panel">
+        </div>
+        <div class="white-panel">
+          <h4>LOGIN</h4>
+          <br>
+          <div class="divset" style="width:70%; margin:0 auto;">
+            <form method="post">
+              <div class="form-group">
+                <label>Your Name or Email</label>
+                <input type="email" name="email" placeholder="enter name/ email" required class="box form-control" />
+              </div>
+              <label>Password</label>
+              <div class="input-group">
+                <input type="password" name="password" id="password" placeholder="enter password" class="box form-control" data-toggle="password">
+                <!-- <div class="input-group-append">
+                  <span class="input-group-text">
+                  
+                   <i class="fa fa-eye"></i>
+                  
+                  </span>
+                  
+                  </div> -->
+              </div>
+              <div style="margin-top:35px">
+                <input type="checkbox" name="remember" value="1" /> <span>Remember me</span>
+                <a style="float: right" routerLink="/resetpassword">Reset Password</a>
+              </div>
+              <button type="submit" name="go" class="btn submitbtn btn-primary btn-block" (click)="gotodashboard()" style="opacity: 1;">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>

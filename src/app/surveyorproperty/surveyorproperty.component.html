@@ -1,0 +1,213 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%;float:right;background: #fff3eb">
+   <app-header></app-header>
+   <div class="container-fluid">
+      <div class="row head" style="padding:30px 0px 10px 20px">
+         <div class="col-md-5">
+            <h5>Surveyors - Rohit Sharma</h5>
+         </div>
+      </div>
+      <div class="floorlist1">
+         <div style="margin-top:30px;float:right;margin-right: 20px">
+            <ul class="tableview">
+               <li class="Sort-by1">Sort by</li>
+               <li>
+                  <select class="classic" style="width:200px;height:32px">
+                     <option>Property type</option>
+                     <option>No external background image</option>
+                     <option>No wrapper</option>
+                  </select>
+               </li>
+               <li class="form-group searchbtn">
+                  <div class="input-group" style="width:350px;">
+                     <input type="text" name="filter" [(ngModel)]="filter"  (ngModelChange)="datas(filter)" style="border-style: solid;
+                     border-width: 1px 0 1px 1px;
+                     border-color:black;height:32px;border-radius: 0" class="form-control input-sm box2" name="firstName"  placeholder="Search Location, Project or Landmark">
+                     <div class="input-group-append" style="height:32px;">
+                        <button class="btn btn-primary" style="background-color: #fff2ea;color:black;border-radius: 0;border-color: black"> <span class="fa fa-search"></span></button>  
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <table class="table">
+            
+            <thead>
+                  <th><input type="checkbox"></th>
+               <th></th>
+               <th [class.active]="order === 'id'"
+               (click)="setOrder('propertyid')">Property ID <span [hidden]="reverse">↓</span
+                  ><span [hidden]="!reverse">↑</span></th>
+               <th [class.active]="order === 'project'"
+               (click)="setOrder('project')">Project <span [hidden]="reverse">↓</span
+                  ><span [hidden]="!reverse">↑</span></th>
+               <th [class.active]="order === 'expert'"
+               (click)="setOrder('expert')" >Expert <span [hidden]="reverse">↓</span
+                  ><span [hidden]="!reverse">↑</span></th>  
+               <th [class.active]="order === 'type'"
+               (click)="setOrder('type')">Type <span [hidden]="reverse">↓</span
+                  ><span [hidden]="!reverse">↑</span></th> 
+                 
+
+               <th [class.active]="order === 'propertyadded'"
+               (click)="setOrder('propertyadded')">Property Added <span [hidden]="reverse">↓</span
+                  ><span [hidden]="!reverse">↑</span></th>
+
+                 
+               <th [class.active]="order === 'status'"
+                  (click)="setOrder('area')">Area <span [hidden]="reverse">↓</span
+                     ><span [hidden]="!reverse">↑</span></th>  
+              
+              
+               <th></th>
+            </thead>
+            <tbody #myVar *ngFor="let policy of table |  orderBy: order:reverse| paginate: { itemsPerPage: 7, currentPage: p, totalItems: total}  | filter:filter as result; let i = index">
+               <!-- <h1 *ngIf="policy.propCode == 0">No Data</h1> -->
+               <!-- <h1 *ngIf="result?.length === undefined">No data</h1> -->
+               <ng4-loading-spinner> </ng4-loading-spinner>
+               <tr class="panel panel-default upperro">
+                     <td  (click)="$event.stopPropagation()"><input type="checkbox"></td>
+
+                  <td class="panel-heading" (click) = "(current = i)">
+                     <span *ngIf="i != current"><i class="fas fa-angle-right"></i>
+                     </span> 
+                     <span *ngIf="i == current"><i class="fas fa-angle-down"></i>
+                     </span> 
+                  </td>
+                  <td style="font-weight: 700;padding-left:30px">{{policy.propCode}}</td>
+                  <td style="font-weight: 700">{{policy.project_name | titlecase}}</td>
+                  <td>Rohit Patil</td>
+                  <td>{{policy.prop_type | titlecase}}</td>
+                  <td>{{policy.prop_date | date}}</td>
+                  <td>{{policy.area | titlecase}}</td>
+                  
+                  <td>
+                     <div class="dropdown">
+                         <div class="container4" id="menu1" data-toggle="dropdown">
+                                 <div class="bar1"></div>
+                                 <div class="bar2"></div>
+                                 <div class="bar3"></div>
+                         </div>
+                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                 <li role="presentation"><a role="menuitem" tabindex="-1">View Details</a></li>
+                                 <li role="presentation"><a role="menuitem" tabindex="-1">Download Reports</a></li>
+                                 <li role="presentation"><a role="menuitem" tabindex="-1">Location</a></li>
+                                 <li role="presentation" class="divider"></li>
+                                 <li role="presentation"><a role="menuitem" tabindex="-1" (click)="deletedata(policy)">Delete</a></li>    
+                         </ul>
+
+                     </div>
+                    
+                 </td>
+               </tr>
+               <tr>
+               </tr>
+               <tr id="collapse1" class="panel-collapse line" [class.collapse]='(current != i)'>
+                  <td class="text-left" colspan="8">
+                     <div class="row">
+                          
+
+                        <div class="col-md-4">
+                           <div class="table2">
+                              <table class="table" style="border-right:2px solid red">
+                                 <tr>
+                                    <td>Project</td>
+                                    <td>{{policy.project_name | titlecase}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>ID</td>
+                                    <td>{{policy.surveyorID}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Builder</td>
+                                    <td>{{policy.builder | titlecase}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Property Type</td>
+                                    <td>{{policy.prop_type | titlecase}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Total Wing</td>
+                                    <td>4</td>
+                                 </tr>
+                                 <tr>
+                                    <td>No of Units</td>
+                                    <td>322</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Total Floor</td>
+                                    <td>20</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Surveyor</td>
+                                    <td>Rohit Patil</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="table2">
+                              <table class="table">
+                                 <tr>
+                                    <td>Address</td>
+                                    <!-- <td>Ravi Tenament New Ranip, Chenpur Rd, 
+                                       New Ranip, Ahmedabad, Gujarat - 382470
+                                       Ranip
+                                       Ahmedabad
+                                       Gujarat
+                                       345456
+                                    </td> -->
+                                    <td>
+                                       {{policy.street1 | titlecase }},{{policy.street2 | titlecase}}
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>Area</td>
+                                    <td>{{policy.area | titlecase}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>City</td>
+                                    <td>{{policy.city | titlecase}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>State</td>
+                                    <td>{{policy.state | titlecase}}</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Pincode</td>
+                                    <td>345465</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                        <div class="col-md-3 table2">
+                           <img src="assets/image/maps.jpg" alt="" style="width: 340px;height:360px">
+                        </div>
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <pagination-controls (pageChange)="p = $event" style="float:right;"></pagination-controls>
+
+
+         <!-- <div class="panel panel-default" *ngFor="let item of items; let i = index">
+            <div class="panel-heading" (click) = "current = i">
+                 <h5 class="panel-title">
+                     <span *ngIf="i != current"><i class="fas fa-angle-right"></i>
+            
+                     </span> 
+                     <span *ngIf="i == current"><i class="fas fa-angle-down"></i>
+            
+                     </span> 
+                 <a>{{item.title}}</a>   
+                 
+                 </h5>
+            </div>
+            <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
+                <div class="panel-body">{{item.description}}</div>
+              </div>
+            </div> -->
+      </div>
+   </div>
+</div>

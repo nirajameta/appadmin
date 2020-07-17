@@ -1,0 +1,96 @@
+<app-sidemenu></app-sidemenu>
+    <div style="width:95%;height:100vh;float:right;background-color: #fff3eb">
+        <app-header></app-header>
+
+        <div class="container-fluid">
+            <div class="row head" style="padding:30px 0px 10px 20px">
+                <div class="col-md-12">
+
+ <div *ngFor="let property of items let i = index">
+    <ngb-accordion [closeOthers]="true" activeIds="'static-'+i">
+        <ngb-panel id="'static-'+i" title="Simple" >
+            <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+            labore sustainable VHS.
+            </ng-template>
+        </ngb-panel>
+
+</ngb-accordion></div>                   
+
+
+                    <h5>New Added Properties</h5>
+                </div>
+      
+            </div>
+
+            <div class="allpropertylist" style="margin: 10px 0 20px 15px">
+                    <div class="col-md-12" style="padding-left: 5px">
+                        <ul class="tableview">
+                              <li class="Sort-by">Sort by</li>
+                              <li>
+                                 <select class="classic" style="width:200px;height:35px; background-position:
+                                 calc(100% - 16px) calc(15px), calc(100% - 12px),
+                                 100% 0;" >
+                                    <option>Property type</option>
+                                    <option>No external background image</option>
+                                    <option>No wrapper</option>
+                                 </select>
+                              </li>
+                              <li class="form-group searchbtn" >
+                                 <div class="input-group" style="width:350px">
+                                    <input type="text" name="search" [(ngModel)]="filter" style="border-style: solid;
+                                       border-width: 1px 0 1px 1px;
+                                       border-color:black;height:34px;border-radius:0" class="form-control input-sm box" name="firstName" placeholder="Search Location, Project or Landmark">
+                                    <div class="input-group-append" style="height:34px;">
+                                       <button class="btn btn-primary" style="background-color: #fff2ea;border-width: 1px 1px 1px 0;
+                                       border-color:black;color:black;border-radius: 0;"> <span class="fa fa-search"></span></button>  
+                                    </div>
+                                 </div>
+                              </li>
+                           </ul>
+                    </div>
+        
+                    <table class="table">
+                        <thead>
+                                <th><input type="checkbox"></th>
+                                <th style="text-align: center">ID</th>
+                                <th>Project</th>
+                                <th>Builder</th>
+                                <th>Surveyor</th>
+                                <th>Expert</th>
+                                <th>Type</th>
+                                <th>Total Units</th>
+                                <th>Total Floors</th>
+                                <th>Updated Date</th>
+                                
+                        </thead>
+                        <tbody>
+                              <tr *ngFor="let property of table">
+                                <td><input type="checkbox"></td>
+                                <td>{{property.propertyID}}</td>
+                                <td>{{property.Project}}</td>
+                                <td>{{property.Builder}}</td>
+                                <td>{{property.Surveyor}}</td>
+                                <td>{{property.Expert}}</td>
+                                <td>{{property.Type}}</td>
+                                <td>{{property.totalUnits}}</td>
+                                <td>{{property.totalFloors}}</td>
+                                <td>{{property.UpdatedDate}}</td>
+                                <td style="text-align: center" (click)="datapolicy(policy)"><img src= "/assets/image/location.svg" alt="" style="width: 17px;
+                                    height: 21px;
+                                    object-fit: contain;
+                                    opacity: 0.79;"></td>
+                                </tr> 
+        
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+
+   
+
+    </div>    

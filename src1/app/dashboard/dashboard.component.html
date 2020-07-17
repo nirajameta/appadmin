@@ -1,0 +1,235 @@
+  <app-sidemenu></app-sidemenu>
+  <div style="width:95%; float:right;background-color: #fff3eb">
+    <app-header ></app-header>
+    <div class="container-fluid">
+        <div class="row head" style="padding:30px 0px 10px 15px">
+          <div class="col-md-3">
+            <h5>Dashboard</h5>
+          </div>
+
+          <div class="col-md-4 offset-md-5 text-right">
+                <span>Last Login 20 Dec 2019 - 04:30 PM</span>
+          </div>
+
+          <div class="col-md-8 offset-md-4 text-right" style="margin-top:10px">
+              <span>Result by - Month  |  Year</span>  <input type="date">
+          </div>
+          
+        </div>
+
+        <div class="row">
+          <div class="col-md-5" >
+              <div class="jumbotron" style="min-height:420px;padding:1em;position:relative;box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.06);
+                background-image: linear-gradient(131deg, #ffeee3, #ffdeca)">
+                <h5 class="titleofcolumn">Projects</h5>
+                <div class="circlechart" style="font-weight: bold;">
+                    <div id="chart2">
+                    </div>
+                </div>
+                <div style="position:absolute; right:7%; top:35%;">
+                    <div class="container5">
+                      <div class="bar4"></div>
+                      <p>{{totalpro}} <span style="font-size: 15.4px;
+                          font-weight: 500;color:#4a4a4a">Completed</span></p>
+                      
+                    </div>
+                  
+                    <div class="container5" style="margin-top:20px">
+                      <div class="bar4" style="background-color: #ee7648"></div>
+                      <p>{{pendingpro}} <span style="font-size: 15.4px;
+                          font-weight: 500;color:#4a4a4a">Pending</span></p>
+                    </div>
+
+                    
+                </div>
+              </div>
+          </div>
+          <div class="col-md-7">
+              <div class="jumbotron dashboardtable" style="padding:1em;min-height:420px; border-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.06);
+                background-color: #ffffff;">
+                <h5 class="titleofcolumn">New Added</h5>
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="pill" href="#home">Residential <span class="badge badge-secondary">3</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#menu1">Commercial <span class="badge badge-secondary">5</span></a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active">
+                      <br>
+                      <table class="table">
+                          <thead>
+                            <th [class.active]="order === 'id'"
+                            (click)="setOrder('propertyid')">Property ID <span [hidden]="reverse">↓</span
+                                ><span [hidden]="!reverse">↑</span></th>
+                            <th [class.active]="order === 'project'"
+                            (click)="setOrder('project')">Project <span [hidden]="reverse">↓</span
+                                ><span [hidden]="!reverse">↑</span></th>
+                            <th [class.active]="order === 'surveyor'"
+                            (click)="setOrder('surveyor')" >Surveyor <span [hidden]="reverse">↓</span
+                                ><span [hidden]="!reverse">↑</span></th>
+                            <th [class.active]="order === 'Units'"
+                            (click)="setOrder('Units')">Units <span [hidden]="reverse">↓</span
+                                ><span [hidden]="!reverse">↑</span></th>
+                            <th [class.active]="order === 'floors'"
+                            (click)="setOrder('floors')">Floors <span [hidden]="reverse">↓</span
+                                ><span [hidden]="!reverse">↑</span></th>
+                            <th [class.active]="order === 'Added_date'"
+                            (click)="setOrder('Added_date')"> Date <span [hidden]="reverse">↓</span
+                                ><span [hidden]="!reverse">↑</span></th>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let policy of table  | orderBy: order:reverse | paginate: {itemsPerPage: 5, currentPage: p, totalItems: total}">
+                                <td>{{policy.propertyid}}</td>
+                                <td>{{policy.project}}</td>
+                                <td>{{policy.surveyor}}</td>
+                                <td>{{policy.Units}}</td>
+                                <td>{{policy.floors}}</td>
+                                <td>{{policy.Added_date}}</td> 
+
+                                <!--<td style="padding-left:30px">{{policy.propCode}}</td>
+                                <td>{{policy.project_name | titlecase}}</td>
+                                <td>{{policy.surveyor | titlecase}}</td>
+                                <td style="padding-left:30px">{{policy.FloorCount}}</td>
+                                <td style="padding-left:30px">{{policy.UnitCount}}</td>
+                                <td>{{policy.Date | date}}</td> -->
+                                <td style="text-align: center" (click)="datapolicy(policy)"><img src= "/assets/image/location.svg" alt="" style="width: 17px;
+                                  height: 21px;
+                                  object-fit: contain;
+                                  opacity: 0.79;"></td>
+                            </tr>
+                          </tbody>
+                      </table>
+                      <pagination-controls (pageChange)="p = $event" style="float:right;"></pagination-controls>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade resdata">
+                      <br>
+                      <h3>No Data Found</h3>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-8" >
+              <div class="jumbotron" style="padding:1em 1em 0 1em;min-height:450px; border-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.06);
+                background-color: #ffffff;">
+                <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="titleofcolumn">Zone-wise Projects </h5>
+                    </div>
+                    
+                    <div class="col-md-6">
+                       <div *ngFor="let direction of countryname">
+                       {{direction.latitude}}
+                        {{direction.langtiude}}
+                      </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row" style="margin-top:15px">
+                    <div class="col-md-8">
+                      <select class="classic" style="height:35px" name="location" [(ngModel)]="location" (change)="onChange(location,$event)" style="width:400px">
+                          <option value ='Select by'>Select by location or Area</option>
+                          <option value ='prahalad nagar'>Prahalad Nagar</option>
+                          <option value = 'paldi'>Paldi</option>
+                          <option value = 'memnagar'>Memnagar</option>
+                          <option value = 'maninagar'>Maninagar</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="navbarformap">
+                          <a><span class="dot1"></span> Residential</a> 
+                          <a><span class="dot"></span> Commercial</a> 
+                      </div>
+                    </div>
+                </div>
+
+                <h1>{{lat}} {{lng}}</h1>
+                <div class="row" style="margin-top:20px">
+                <div class="col-md-12">
+                      <agm-map  [latitude]="lat" [longitude]="lng"  [zoom]="zoom">
+                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                            
+                      </agm-map>
+                      
+                </div>
+                </div>
+                
+                    
+                
+
+                
+              </div>
+          </div>
+          <div class="col-md-4" >
+              <div class="jumbotron" style="padding:1em 0 0 1em;min-height:450px; border-radius: 4px;
+              box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.06);
+              background-color: #ffffff;">
+                <h5 class="titleofcolumn">Latest Activity</h5>
+
+                <div class="row" style="margin-top: 15px">
+                          <div class="landing-page-card">
+                            
+                            <div class="card-container">
+                              <span class="card-icon">	<img src="assets/image/icon.svg" style="height:23px; width:23px">							
+                                </span>
+                                
+                              <p class="card-content">
+                                  <span>Property name</span><br>
+                                  <span>25 min ago</span><br><br>
+                                  <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                                  <br><span> <hr></span>
+                                
+                                </p>
+                              
+                                
+                            </div>
+
+                            <div class="card-container">
+                                  <span class="card-icon"><img src="assets/image/home.svg" style="height:23px; width:23px">							
+                                    </span>
+                                    
+                                  <p class="card-content">
+                                      <span>Property nav-item</span><br>
+                                      <span>25 min ago</span><br><br>
+                                      <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                                      <br><span> <hr></span>
+                                    
+                                    </p>
+                                    </div>
+
+                                    <div class="card-container">
+                                        <span class="card-icon"><img src="assets/image/home.svg" style="height:23px; width:23px">							
+                                          </span>
+                                          
+                                        <p class="card-content">
+                                            <span>Property nav-item</span><br>
+                                            <span>25 min ago</span><br><br>
+                                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                                            <br><span> <hr></span>
+                                          
+                                          </p>
+                                          </div>     
+                          </div>
+                          
+                          
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+    </div>
+  </div>

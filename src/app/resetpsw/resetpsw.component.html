@@ -1,0 +1,82 @@
+<section class="container-fluid">
+    <section class="login-form directionimg">
+      <section>
+        <img src="assets/image/logo.svg" alt="" />
+      </section>
+      <div class="loginbox">
+        <div class="logina">
+        </div>
+        <div class="white-panel" *ngIf="displaydiv">
+          <h4>Reset Password</h4>
+          <br>
+          <div class="divset" style="width:70%; margin:0 auto;">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+              <div class="form-group">
+                <label>New Password</label>
+                <input type="password" name="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6">
+                <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div> 
+
+              <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required>
+                    <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+                        <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+                        <div *ngIf="confirmPassword.errors.mustMatch">Confirm Passwords must be same as New Password </div>
+                    </div>              
+              </div>
+
+                
+                
+              
+             
+             
+              <button type="submit" name="go" class="btn submitbtn btn-primary btn-block" 
+               style="opacity: 1;margin-top:40px">Reset my Password</button>
+            </form>
+            <!-- <div class="backlogin" routerLink="/login">
+                    <img src="assets/image/goback.svg" alt="" />
+                    <a>or Back to Login</a>
+            </div> -->
+
+          </div>
+        </div>
+
+      
+      </div>
+
+      
+        <div class="loginbox1" *ngIf="!displaydiv">
+
+          <div style=" background-color: #ffdbc5;
+          min-width: 35%;
+          min-height: 380px; 
+          right: 20%;
+          top: 30%;
+          position: absolute;
+          z-index: 2;">
+             
+          </div>
+           
+            
+          <div class="white-panel1 text-center">
+                 
+                    <h5>Successful password reset!</h5><br>
+                     <p>you can login to your account
+                      using new password</p><br>
+                  <button type="submit" name="go" class="btn submitbtn btn-primary btn-block" routerLink="/login">Login</button>
+
+          </div>
+        </div>
+            
+
+           
+      
+      
+
+      
+    </section>
+  </section>

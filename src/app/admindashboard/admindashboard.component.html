@@ -1,0 +1,393 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%;float:right;background-color: #fff3eb; position:relative;background-image: url('./assets/image/login_bg1/bg@3x.jpg') no-repeat; ">
+   <app-header></app-header>
+
+  
+     <!-- <img src="assets/image/vastu & energy.png" alt="" style="width:1000px;height:600px;position:absolute;z-index:10;left:0" /> -->
+  
+  
+
+   <div class="container-fluid">
+       <div class="row head" style="padding:30px 0px 10px 20px">
+           <div class="col-md-3">
+             <h5>Dashboard</h5>
+           </div>
+
+           <div class="col-md-4 offset-md-5 text-right">
+                <span>Last Login 20 Dec 2019 - 04:30 PM</span>
+           </div>
+
+           <div class="col-md-8 offset-md-4 text-right" style="margin-top:10px">
+              <span>Result by - Month  |  Year</span>  <input type="date">
+           </div>
+           
+       </div>
+
+       
+     
+
+       <div class="row graph">
+            <div class="statics" style="position:relative">
+                <h5>Projects Statistics</h5>
+                <div style="position:absolute;bottom:2px;left:3px;z-index:2">
+                  <img src="assets/image/ss.png" style="position:relative" >
+                </div>
+                <div id="chartdiv" style="width: 85%; height: 350px">
+                  
+                </div>
+                <div class='section'>
+                    <span class="element-left">Total Projects</span>
+                    <span class="element-right">{{totalproject}}</span><br><br>
+                    <span style="background-color: #9b57cb" class="element-left">Completed</span>
+                    <span class="element-right">{{Completed}}</span><br><br>
+                    <span style="background-color: #e66083" class="element-left">Pending</span>
+                    <span class="element-right">{{Pending}}</span>
+                </div>
+            </div>
+ 
+            <div class="linegraph">
+              <div class="row">
+                <div class="col-md-6">
+                    <h5 style="margin-left:20px">Revenue</h5>
+                </div>
+                <div class="col-md-6 displaystatisticinline">
+                    <div class="numberblock">
+                      <p style="width:35px;margin-right: 20px">Today <span>1898</span> </p>
+                    </div>
+                    <div class="numberblock">
+                        <p style="width:70px;">This Week <span>21232</span> </p>
+                    </div>
+                    <div class="numberblock">
+                        <p style="width:70px">This Month <span>73067</span></p>
+                    </div>
+                </div>
+
+                <div class="col-md-12 displaystatisticoutline">
+                    <div class="numberblock">
+                      <p style="width:35px;margin-right: 20px">Today <span>1898</span> </p>
+                    </div>
+                    <div class="numberblock">
+                        <p style="width:70px;">This Week <span>21232</span> </p>
+                    </div>
+                    <div class="numberblock">
+                        <p style="width:70px">This Month <span>73067</span></p>
+                    </div>
+                </div>
+
+                
+               </div>
+
+            
+
+              <div class="row" style="margin:20px 0 20px 7px">
+                  <div class="navbarformap">
+                      <a><span class="dot2"></span> Residential</a> 
+                      <a><span class="dot2" style="margin-left:15px;background-color: rgba(48, 35, 174,0.5)"></span> Commercial</a> 
+                   </div>
+              </div>
+                <div style="display: block;">
+                    <canvas baseChart style="height:260px"
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [colors]="lineChartColors"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                  </div>
+                </div>
+          </div>
+
+          <div class="row thirdchart" style="margin-top:15px">  
+              <div class="barchart">
+                <h5>Users Visits this Month</h5>
+                <!-- <div id="chartContainer" style="height: 300px; width: 100%;"></div> -->
+                <div class="chart-container" style="height:360px; width:97%;margin-top:4%">    
+                  <canvas id="canvas">{{ Linechart }}</canvas>    
+                </div> 
+              </div>
+
+              <div class="Completedpro">
+                  <h5>Latest Completed Projects</h5>
+
+                  <div>
+                    <table class="table">
+                        <thead>
+                            <th [class.active]="order === 'id'"
+                            (click)="setOrder('propertyid')">Property ID <span [hidden]="reverse">↓</span
+                               ><span [hidden]="!reverse">↑</span></th>
+
+                            <th [class.active]="order === 'project'"
+                            (click)="setOrder('project')">Project <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>  
+
+                              <th [class.active]="order === 'builder'"
+                              (click)="setOrder('builder')" >Builder <span [hidden]="reverse">↓</span
+                                  ><span [hidden]="!reverse">↑</span></th>      
+ 
+                            <th [class.active]="order === 'surveyor'"
+                            (click)="setOrder('surveyor')" >Surveyor <span [hidden]="reverse">↓</span
+                               ><span [hidden]="!reverse">↑</span></th>
+ 
+                              
+ 
+                       
+ 
+                            <th [class.active]="order === 'projecttype'"
+                            (click)="setOrder('projecttype')">Expert <span [hidden]="reverse">↓</span
+                               ><span [hidden]="!reverse">↑</span></th>   
+                            
+                            <th [class.active]="order === 'Units'"
+                            (click)="setOrder('Units')">Property Type <span [hidden]="reverse">↓</span
+                               ><span [hidden]="!reverse">↑</span></th>
+ 
+                       
+ 
+                            <th [class.active]="order === 'Added_date'"
+                            (click)="setOrder('Added_date')"> Completed <span [hidden]="reverse">↓</span
+                               ><span [hidden]="!reverse">↑</span></th>
+                         </thead>
+
+                         <tbody>
+                           <tr>
+                             <td>C0138</td>
+                             <td>Sun</td>
+                             <td>Rohit Patil</td>
+                             <td>Rohit Patil</td>
+                             <td>Rohit Patil</td>
+                             <td>Commercial</td>
+                             <td>13 Dec 2019</td>
+                           </tr>
+                         </tbody>
+
+                    </table>
+                  </div>
+                  
+  
+                </div>
+
+
+          </div>
+
+
+         <div class="row lastsection" style="margin-top:20px;margin-bottom:20px">
+           <div class="col-md-8">
+             <div class="row" style="width:100%;">
+               <div class="col-md-12 hcol">
+                 <div class="row">
+                   <div class="col-md-12">
+                      <h5>Active Users</h5>
+                   </div>
+                  </div>
+
+
+                  <div class="row" style="width:70%;margin: 0 auto">
+                      <div class="col-md-4">
+                          <div style="position: relative;width:117px;height:117px">
+                              <circle-progress 
+                              [percent]="80"
+                              [showTitle]=false
+                              [maxPercent]="100"
+                              [outerStrokeGradient]=true
+                              [outerStrokeGradientStopColor]="'#3023ae'"
+                              [backgroundGradient]=true
+                              [subtitleFontSize]=13
+                              [backgroundOpacity]=0.3
+                              [showUnits]= "false"
+                              [radius]= 70
+                              [backgroundColor]="'#ffffff'"
+                              [backgroundPadding]=-10
+                              [showBackground]=true
+                              [innerStrokeWidth]="0"
+                              [outerStrokeWidth]="10"
+                              [outerStrokeColor]="'#c86dd7'"
+                              [backgroundGradientStopColor]="'#c0c0c0'"
+                              [showInnerStroke]=false
+                              [animation]="true"
+                              [animationDuration]="300"
+                              ></circle-progress>
+                             <p style="position: absolute;top:40%; left:50%;font-family: Gotham;font-size: 16.8px;">23/25</p>
+                            
+                           </div>
+                           <div class="circlename" style="margin:40px 0 0 50px">
+                             <span>Surveyors</span>
+                           </div>
+        
+                      </div>
+
+                      <div class="col-md-4">
+                          <div style="position: relative;width:117px;height:117px">
+                              <circle-progress 
+                              [percent]="80"
+                              
+                              [showTitle]=false
+                              [maxPercent]="100"
+                              [outerStrokeGradient]=true
+                              [outerStrokeGradientStopColor]="'#3023ae'"
+                              [backgroundGradient]=true
+                              [subtitleFontSize]=13
+                              [backgroundOpacity]=0.3
+                              [showUnits]= "false"
+                              [radius]= 70
+                              [backgroundColor]="'#ffffff'"
+                              [backgroundPadding]=-10
+                              [showBackground]=true
+                              [innerStrokeWidth]="0"
+                              [outerStrokeWidth]="10"
+                              [outerStrokeColor]="'#c86dd7'"
+                              [backgroundGradientStopColor]="'#c0c0c0'"
+                              [showInnerStroke]=false
+                              [animation]="true"
+                              [animationDuration]="300"
+                              ></circle-progress>
+                              <p style="position: absolute;top:40%; left:50%;font-family: Gotham;font-size: 16.8px;">23/25</p>
+
+                           </div>
+                           <div class="circlename" style="margin:40px 0 0 40px">
+                              <span>Vastu Experts</span>
+                            </div>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div style="position: relative;width:117px;height:117px">
+                              <circle-progress 
+                              [percent]="80"
+                              
+                              [showTitle]=false
+                              [maxPercent]="100"
+                              [outerStrokeGradient]=true
+                              [outerStrokeGradientStopColor]="'#3023ae'"
+                              [backgroundGradient]=true
+                              [subtitleFontSize]=13
+                              [backgroundOpacity]=0.3
+                              [showUnits]= "false"
+                              [radius]= 70
+                              [backgroundColor]="'#ffffff'"
+                              [backgroundPadding]=-10
+                              [showBackground]=true
+                              [innerStrokeWidth]="0"
+                              [outerStrokeWidth]="10"
+                              [outerStrokeColor]="'#c86dd7'"
+                              [backgroundGradientStopColor]="'#c0c0c0'"
+                              [showInnerStroke]=false
+                              [animation]="true"
+                              [animationDuration]="300"
+                              ></circle-progress>
+                              <p style="position: absolute;top:40%; left:50%;font-family: Gotham;font-size: 16.8px;">23/25</p>
+
+                           </div>
+                           <div class="circlename" style="margin:40px 0 0 50px">
+                              <span>Supporter</span>
+                            </div>
+                      </div>
+                     </div>
+                  </div>
+
+
+                  <div class="col-md-12 hcol1">
+                      <div class="row">
+                          <div class="col-md-6">
+                            <h5 style="font-weight: bold">Zone-wise Projects </h5>
+                          </div>
+                          <div class="col-md-6">
+                            <p style="float: right">List view </p>
+                          </div>
+                      </div>
+                      <div class="row" style="margin-top:15px">
+                          <div class="col-md-8">
+                            <select class="classic" style="width: 400px;">
+                                <option>Select by location, area</option>
+                                <option>No external background image</option>
+                                <option>No wrapper</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4 text-right">
+                            
+                                <a><span class="dot2"></span> Residential</a> 
+                                <a><span class="dot2" style="margin-left:15px;background-image: linear-gradient(135deg, #ffc29d, #f1955b);"></span> Commercial</a> 
+                            
+                          </div>
+                      </div>
+        
+                      <div class="row" style="margin-top:20px">
+                      <div class="col-md-12">
+                            <agm-map [latitude]="lat" [longitude]="lng">
+                                  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                                </agm-map>
+                              </div>
+                      </div>
+                    </div>
+             </div>
+           </div>
+
+           <div class="col-md-4 updatebox">
+              <h5 class="titleofcolumn">Latest Activity</h5>
+              <div class="row" style="margin-top: 15px">
+                  <div class="landing-page-card">
+                     
+                     <div class="card-container">
+                       <span class="card-icon">	<img src="assets/image/icon.svg" style="height:23px; width:23px">							
+                         </span>
+                        
+                        <p class="card-content">
+                          <span>Property name</span><br>
+                          <span class="smalltxt">25 min ago</span><br><br>
+                          <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                          <br><span> <hr></span>
+                         
+                        </p>
+                      </div>
+
+                      <div class="card-container">
+                          <span class="card-icon">	<img src="assets/image/home.svg" style="height:23px; width:23px">							
+                            </span>
+                           
+                           <p class="card-content">
+                             <span>Property name</span><br>
+                             <span class="smalltxt">25 min ago</span><br><br>
+                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                             <br><span> <hr></span>
+                            </p>
+                        </div>
+
+                        <div class="card-container">
+                            <span class="card-icon">	<img src="assets/image/home.svg" style="height:23px; width:23px">							
+                              </span>
+                             
+                             <p class="card-content">
+                               <span>Property name</span><br>
+                               <span class="smalltxt">25 min ago</span><br><br>
+                               <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                               <br><span> <hr></span>
+                              
+                             </p>
+                          </div>
+
+                         
+                        <div class="card-container">
+                            <span class="card-icon">	<img src="assets/image/icon.svg" style="height:23px; width:23px">							
+                              </span>
+                             
+                             <p class="card-content">
+                               <span>Property name</span><br>
+                               <span class="smalltxt">25 min ago</span><br><br>
+                               <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                               <br><span> <hr></span>
+                              
+                             </p>
+                        </div> 
+
+
+                  </div>
+                </div>     
+              
+              
+           </div>
+
+         </div>
+
+
+
+   </div>
+
+ </div>  

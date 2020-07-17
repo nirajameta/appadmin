@@ -1,0 +1,123 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%;float:right;background-color: #fff3eb;">
+   <app-header ></app-header><br>
+  
+   <div class="container-fluid">
+
+        <div class="row">
+                <div class="col-md-12">
+                    <h4 class="Profileh4">Profile Settings</h4>
+                    </div>
+              
+        </div>
+        <form name="form"  #f="ngForm" (ngSubmit)="f.form.valid && updatedata(profileobject)" autocomplete="off" novalidate>
+        <div class="settingbox">
+            <div class="row">
+                <div class="col-md-4 text-center">
+   
+                    <div class="imagewithbutton" style="position:relative">
+                     
+                            <div class="image-container">
+                               <img [src]="url ? url : 'assets/image/avatar1.png'" class="" style="margin-left:-100px"> <br/>
+                               <input type='file' (change)="onSelectFile($event.target.files)" class="select-profile-picture">
+                               <span class="message"><button class="btn" style="background-color: #ffdbc5">Update Photo </button> </span>
+
+                           </div>
+                           <div style="position:absolute;bottom:1px;left:40px;z-index:18">
+                                <a class="btn" style="background-color: #ffdbc5" (click)="deletepic()">Delete Picture </a>
+                           </div>
+                           
+                    </div>
+
+                </div>
+                <div class="col-md-8">
+                   <div class="pinfo">
+                        <h5>Personal Information</h5>
+                        <hr>
+                        <table class="table" style="width:75%">
+                            <tr>
+                                <td>
+                                   <span>Full Name:</span> 
+                                </td>
+                                <td>
+                                    <input type="text" class="box1 form-control" name="firstname" style="width:100%" [(ngModel)]="profileobject.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required >
+                                  
+                                    <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                                        <div *ngIf="firstName.errors.required">First Name is required</div>
+                                    </div>  
+                                </td>
+                                <td>
+                                    <input type="text" class="box1 form-control" id="lastname" name="lastName" style="width:100%" [(ngModel)]="profileobject.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required>
+                                    <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                                        <div *ngIf="lastName.errors.required">Last Name is required</div>
+                                    </div> 
+                                  
+                                </td>
+                            </tr>
+    
+   
+
+                            <tr>
+                                    <td style="width:auto">
+                                        <span>Gender:</span>
+                                    </td>
+                                    <td>
+                                        <select name="gender" class="form-control" style="width:100%" name="gender" [(ngModel)]="profileobject.gender" #gender="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gender.invalid }" required>
+                                                <option value="">Select Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                        </select>
+                                        <div *ngIf="f.submitted && gender.invalid" class="invalid-feedback">
+                                            <div *ngIf="gender.errors.required">Gender is required</div>
+                                        </div>
+                                        
+                                    </td>
+                                </tr>
+                        </table>
+                   </div> 
+
+                   <div class="cinfo">
+                        <h5>Contact</h5>
+                        <hr>
+
+                            <div class="form-group">
+                              <label for="email">Email:</label>
+                              <input type="email" class="box1 form-control" id="email" name="email" [(ngModel)]="profileobject.email" disabled>
+                            </div>
+                            <div class="form-group">
+                              <label for="pwd">Contact:</label>
+                              <input type="text" class="box1 form-control" id="contact" placeholder="090 9999 9898" name="contact" [(ngModel)]="profileobject.contact" #contact="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contact.invalid }" required>
+                              <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
+                                <div *ngIf="contact.errors.required">Contact is required</div>
+                                
+                             </div> 
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="box1 form-control" id="pwd" placeholder="Enter password" name="password" [(ngModel)]="profileobject.password"  #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required>
+                                <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                                    <div *ngIf="password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                   </div>
+
+                   <div *ngIf="msgdisplay">
+                       <span class="alert alert-success"><strong>{{successmsg}}</strong></span>
+
+                   </div>
+
+                   <div class="buttonprofile">
+                        <button type="button" class="btn">Cancel</button>
+                        <button type="submit" class="btn">Save Changes</button>
+                   </div>
+                   
+
+
+                </div>
+            </div>
+            
+        </div>
+    </form> 
+
+    </div>
+</div>    

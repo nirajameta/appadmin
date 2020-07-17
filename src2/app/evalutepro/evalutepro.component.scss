@@ -1,0 +1,156 @@
+
+.column{
+    position: relative;
+}
+
+.property{
+    width: 0;
+    height: 0;
+    
+    border-bottom: 45px solid #e1e1e1;
+    border-right: 90px solid transparent;
+   
+}
+
+.square {
+    top:20px;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    background: white;
+    overflow: hidden;
+  }
+  .inner-element-1,
+  .inner-element-2 {
+    position: absolute;
+    top: 0px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border: 2px solid;
+    background: white;
+    z-index: 1;
+  }
+
+  .square .active {
+    border:5px solid blue;
+
+
+  }
+
+  .inner-element-1 {
+    left: -2px;
+    transform-origin: left bottom;
+  }
+  .inner-element-2 {
+    right: -2px;
+    transform: skewY(45deg);
+    transform-origin: right bottom;
+  }
+
+.property1{
+    width: 0;
+    height: 0;
+    border-top: 45px solid #bcbec0;
+    border-left: 90px solid transparent;
+
+ }
+
+ .property2{
+    width: 0;
+    height: 0;
+    border-top: 45px solid #a49d40;
+    border-right: 90px solid transparent;
+}
+
+.property3{
+    width: 0;
+    height: 0;
+    border-bottom: 45px solid paleturquoise;
+    border-left: 90px solid transparent;
+}
+
+// .property:active{
+//     width: 0;
+//     height: 0;
+//     border-bottom: 90px solid cyan;
+//     border-right: 90px solid transparent;position:relative
+// }
+
+.colorchange1 .active{
+    width: 0;
+    height: 0;
+    
+    
+
+    background-size: 50px 50px;
+    z-index:8;
+    border-top: 45px solid purple;
+    border-left: 90px solid transparent;
+   
+}
+
+ .colorchange .active  
+ {
+    width: 0;
+    height: 0;
+    
+    
+
+    background:  url("https://s.pngkit.com/png/small/27-272710_checkbox-comments-check-mark-icons-noun-project.png") no-repeat; 
+    background-size: 50px 50px;
+    z-index:8;
+    // background-size: 100% 92%;
+    border-bottom: 45px solid purple !important;
+    border-right: 90px solid transparent !important;
+   
+}
+
+
+.colorchange2 .active{
+    width: 0;
+    height: 0;
+    background:  url("https://s.pngkit.com/png/small/27-272710_checkbox-comments-check-mark-icons-noun-project.png") no-repeat; 
+    background-size: 50px 50px;
+    z-index: 15;
+    border-top: 45px solid purple;
+    border-right: 90px solid transparent;
+   
+}
+
+.bigbutton .active{
+    background:purple !important;
+}
+
+.colorchange3 .active{
+    width: 0;
+    height: 0;
+    border-bottom: 45px solid purple;
+    border-left: 90px solid transparent;
+   
+}
+
+// .property1 .active{
+//     width: 0;
+//     height: 0;
+    
+//     border-bottom: 90px solid yellow !important;
+//     border-right: 90px solid transparent !important;
+   
+// }
+
+span.stars, span.stars span {
+    display: block;
+   /* Download the star image here: http://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css */
+    background: url('https://apppresser.com/wp-content/uploads/2015/11/stars.png') 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+.alignright {
+  float:right;
+}

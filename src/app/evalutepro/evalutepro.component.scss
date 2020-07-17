@@ -1,0 +1,147 @@
+// .evalutepro .active{
+//     background-color: #ffede2;
+// }
+
+.colcolor .active{
+  background-color:#ffede2 ;
+}
+
+.colcolor span{
+  vertical-align: text-top;
+}
+
+
+
+
+.column .square {
+  
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  background: white;
+  overflow: hidden;
+}
+.inner-element-1,
+.inner-element-2, .inner-element-3 {
+  position: absolute;
+  top: 0px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  background: white;
+  z-index: 1;
+}
+.inner-element-1 {
+  left: -2px;
+  transform-origin: left bottom;
+}
+.inner-element-2 {
+  right: -2px;
+  transform: skewY(45deg);
+  transform-origin: right bottom;
+}
+
+.inner-element-3 {
+  right: -2px;
+  transform: skewY(136deg);
+  transform-origin: right bottom;
+}
+
+
+// .column{
+//     position: relative;
+// }
+
+// .property{
+//     width: 0;
+//     height: 0;
+    
+//     border-bottom: 45px solid #e1e1e1;
+//     border-right: 90px solid transparent;
+   
+// }
+
+// .property1{
+//     width: 0;
+//     height: 0;
+//     border-top: 45px solid #bcbec0;
+//     border-left: 90px solid transparent;
+
+//  }
+
+//  .property2{
+//     width: 0;
+//     height: 0;
+//     border-top: 45px solid #a49d40;
+//     border-right: 90px solid transparent;
+// }
+
+// .property3{
+//     width: 0;
+//     height: 0;
+//     border-bottom: 45px solid paleturquoise;
+//     border-left: 90px solid transparent;
+// }
+
+// .property:active{
+//     width: 0;
+//     height: 0;
+//     border-bottom: 90px solid cyan;
+//     border-right: 90px solid transparent;position:relative
+// }
+
+.card_d span{
+    cursor: pointer;
+}
+
+.card_d .active{
+    content:"$";
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 20px;
+    width: 20px;
+    position:absolute;
+    //background:  url("https://s.pngkit.com/png/small/27-272710_checkbox-comments-check-mark-icons-noun-project.png") no-repeat; 
+  //  background-size: 30px 25px;
+    z-index:8;
+
+ //  color:purple !important;
+   
+   
+}
+
+//  .colorchange .active  
+//  {
+//     width: 0;
+//     height: 0;
+    
+    
+
+//     background:  url("https://s.pngkit.com/png/small/27-272710_checkbox-comments-check-mark-icons-noun-project.png") no-repeat; 
+//     background-size: 50px 50px;
+//     z-index:8;
+//     // background-size: 100% 92%;
+//     border-bottom: 45px solid purple !important;
+//     border-right: 90px solid transparent !important;
+   
+// }
+
+
+// .colorchange2 .active{
+//     width: 0;
+//     height: 0;
+//     background:  url("https://s.pngkit.com/png/small/27-272710_checkbox-comments-check-mark-icons-noun-project.png") no-repeat; 
+//     background-size: 50px 50px;
+//     z-index: 15;
+//     border-top: 45px solid purple;
+//     border-right: 90px solid transparent;
+   
+// }
+
+// .bigbutton .active{
+//     background:purple !important;
+// }
+
+
+
+

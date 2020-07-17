@@ -1,0 +1,107 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%;float:right;background-color: #fff3eb">
+   <app-header></app-header>
+
+   <div class="container-fluid">
+        <div class="row head" style="padding:30px 2px 22px 20px">
+                <div class="col-md-6">
+                    <h5>Surveyors</h5>
+                </div>
+                <div class="col-md-5 offset-md-1 text-right ">
+                    <button  type="button" class="btn" routerLink="/addsurveyor">Add New</button>
+                </div>
+            </div>
+        
+
+    </div>
+
+    <div class="Surveyorbox">
+        <ul class="tableview">
+            <li class="form-group searchbtn">
+                <div class="input-group" style="width:350px;">
+                    <input type="text" name="search" [(ngModel)]="filter" style="border-style: solid;
+                        border-width: 1px 0 1px 1px;
+                        border-color:black;height:32px;border-radius: 0" class="form-control input-sm box2" name="firstName" placeholder="Search Location, Project or Landmark">
+                        <div class="input-group-append" style="height:32px;">
+                            <button class="btn btn-primary" style="background-color: #fff2ea;color:black;border-radius: 0;border-color: black"> <span class="fa fa-search"></span></button>  
+                        </div>
+                </div>
+            </li>
+        </ul> 
+       
+
+        <table class="table">
+            <thead>
+                <th><input type="checkbox" ></th>
+                <th>No</th>
+                <th>Full Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Properties</th>
+                <th>Joined Date</th>
+            </thead>
+            <!-- <div *ngIf="!subscription?.closed">loading...</div> -->
+            <tbody>
+                    <ng4-loading-spinner> </ng4-loading-spinner>
+
+                <tr style="border-bottom:1px solid rgba(0, 0, 0, 0.06)" (click)="editCar(data)" *ngFor="let data of tablewithcount | filter:filter; let i = index">
+                    <!-- <td  (click)="$event.stopPropagation()"><input type="checkbox"></td>
+                    <td>{{data.No}}</td>
+                    <td style="font-weight: 700">{{data.FullName}}</td>
+                    <td>{{data.Contact}}</td>
+                    <td>{{data.Email}}</td>
+                    <td style="width:300px">
+                        <tr>
+                            <td>Approved</td>
+                            <td>{{data.Approved}}</td>
+                        </tr>
+                        <tr>
+                            <td>Rejected</td>
+                            <td>{{data.Rejected}}</td>
+                        </tr>
+                    </td>
+                    <td (click)="$event.stopPropagation();deleteCar(data.No)">{{data.JoinedDate}}</td>
+                    <td style="width:20px"><div class="container4">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                          </div></td> -->
+
+                          <td  (click)="$event.stopPropagation()"><input type="checkbox"></td>
+                          <td>{{i+1}}</td>
+                          <td style="font-weight: 500">{{data.username | titlecase}}</td>
+                          <td>{{data.contact}}</td>
+                          <td>{{data.email}}</td>
+                          <td>
+
+                            <table class="table inside" >
+                                <tr>
+                                    <td>Approved</td>
+                                    <td>{{data.approved}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Rejected</td>
+                                    <td>{{data.rejected}}</td>
+                                </tr>
+                                <tr>
+                                      <td>Pending</td>
+                                      <td>{{data.pending}}</td>
+                                  </tr>
+                            
+                            </table>
+                          </td>
+                          <td (click)="$event.stopPropagation();deleteCar(data.No)">{{data.joining_date | date}}</td>
+                          <td style="width:20px"><div class="container4">
+                                  <div class="bar1"></div>
+                                  <div class="bar2"></div>
+                                  <div class="bar3"></div>
+                                </div></td>       
+
+                        </tr>
+            </tbody>
+
+        </table>
+    </div>     
+
+
+</div>         

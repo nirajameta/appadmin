@@ -1,0 +1,301 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%; float:right;background-color: #fff3eb">
+   <app-header></app-header>
+
+   <div class="container-fluid">
+        <div class="row head" style="padding:30px 0px 10px 20px">
+            <div class="col-md-5">
+              <h5>Surveyors - Rohit Sharma</h5>
+            </div>
+         </div>
+
+         
+
+         <div class="floorlist1">
+
+                <ul class="nav nav-pills" role="tablist" style="opacity: 0.6;
+                background-image: linear-gradient(93deg, #ffdbc5, #fdcaaa);">
+                    <li class="nav-item">
+                       <a class="nav-link active" data-toggle="pill" href="#Unpaid">Unpaid Property</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" data-toggle="pill" href="#approved">Approved Paid Property</a>
+                    </li>
+                  
+                 </ul>
+    
+                 <div class="tab-content">
+                        <div style="margin-top:30px;float:right">
+                                <ul class="tableview">
+                                      <li class="Sort-by1">Sort by</li>
+                                      <li>
+                                         <select class="classic" style="width:200px;">
+                                            <option>Property type</option>
+                                            <option>No external background image</option>
+                                            <option>No wrapper</option>
+                                         </select>
+                                      </li>
+                                      <li class="form-group searchbtn">
+                                         <div class="input-group" style="width:350px;">
+                                            <input type="text" name="search" [(ngModel)]="filter" style="border-style: solid;
+                                               border-width: 1px 0 1px 1px;
+                                               border-color:black;height:32px" class="form-control input-sm box2" name="firstName" placeholder="Search Location, Project or Landmark">
+                                            <div class="input-group-append" style="height:32px;">
+                                               <button class="btn btn-primary" style="background-color: #fff2ea;color:black;border-radius: 0;border-color: black"> <span class="fa fa-search"></span></button>  
+                                            </div>
+                                         </div>
+                                      </li>
+                                   </ul>
+              
+                                    
+                          </div>
+                     
+                   <br>
+                     
+                    <div id="Unpaid" class="container tab-pane active" style="margin-left:20px !important">
+                          <table class="table">
+                             <thead>
+                                <th><input type="checkbox"></th>
+                                <th></th>
+                                <th>Property ID</th>
+                                <th>Project</th>
+                                <th>Expert</th>
+                                <th>Type</th>
+                                <th>Property Added</th>
+                                <th>Status</th>
+                                <th></th>
+                             </thead>
+                             <tbody *ngFor="let policy of table | orderBy: order:reverse:'case-insensitive'  let i = index">
+                                       <tr class="panel panel-default upperro" (click) = "idx = i">
+                                         <td><input type="checkbox"></td>
+                                          <td class="panel-heading" style="width:40px"> 
+                                                <span *ngIf="i != idx"><i class="fas fa-angle-right"></i>
+                                                </span> 
+                                                <span *ngIf="i == idx"><i class="fas fa-angle-down"></i>
+                                                </span> 
+                                          </td>  
+                                          <td >{{policy.propertyid}}</td>
+                                          <td>{{policy.project}}</td>
+                                          <td>{{policy.Expert}}</td>
+                                          <td>{{policy.Type}}</td>
+                                          <td>{{policy.PropertyAdded}}</td>
+                                          <td>{{policy.status}}</td>
+                                          
+                                         
+                                         
+                                         
+                                          <td style="width:20px"><div class="container4">
+                                                <div class="bar1"></div>
+                                                <div class="bar2"></div>
+                                                <div class="bar3"></div>
+                                              </div></td>
+                                          </tr>
+                                          <tr id="collapse1" class="panel-collapse line" [class.collapse]='idx != i'>
+                                             
+                                          </tr>
+                             </tbody>
+                          </table>
+                     
+                     </div>   
+    
+                     <div id="approved" class="container tab-pane fade">
+                           <div id="panel-group" style="margin-top:7%">
+                                 <table class="table">
+                                       <thead>
+                                          <th></th>
+
+                                          <th [class.active]="order === 'id'"
+                                          (click)="setOrder('propertyid')">Property ID <span [hidden]="reverse">↓</span
+                                             ><span [hidden]="!reverse">↑</span></th>
+               
+                                             <th [class.active]="order === 'project'"
+                                             (click)="setOrder('project')">Project <span [hidden]="reverse">↓</span
+                                                ><span [hidden]="!reverse">↑</span></th>
+               
+                                             <th [class.active]="order === 'expert'"
+                                             (click)="setOrder('expert')" >Expert <span [hidden]="reverse">↓</span
+                                                ><span [hidden]="!reverse">↑</span></th>  
+               
+                                     
+               
+                                          <th [class.active]="order === 'type'"
+                                          (click)="setOrder('type')">Type <span [hidden]="reverse">↓</span
+                                             ><span [hidden]="!reverse">↑</span></th>   
+                                          
+                                          <th [class.active]="order === 'propertyadded'"
+                                          (click)="setOrder('propertyadded')">Property Added <span [hidden]="reverse">↓</span
+                                             ><span [hidden]="!reverse">↑</span></th>
+               
+                                          <th [class.active]="order === 'amountpaid'"
+                                          (click)="setOrder('amountpaid')">Amount Paid <span [hidden]="reverse">↓</span
+                                             ><span [hidden]="!reverse">↑</span></th>
+               
+                                          <th [class.active]="order === 'paymentdate'"
+                                          (click)="setOrder('paymentdate')"> Payment Date <span [hidden]="reverse">↓</span
+                                             ><span [hidden]="!reverse">↑</span></th>
+
+                                           <th></th>  
+                                       </thead>
+
+                                       <tbody *ngFor="let policy of table | orderBy: order:reverse:'case-insensitive'  let i = index">
+                                             <tr class="panel panel-default upperro" (click) = "current = i">
+                                                <td class="panel-heading" style="width:20px">
+                                                      <span *ngIf="i != current"><i class="fas fa-angle-right"></i>
+                                                      </span> 
+                                                      <span *ngIf="i == current"><i class="fas fa-angle-down"></i>
+                                                      </span> 
+                                                </td>  
+                                                <td >{{policy.propertyid}}</td>
+                                                <td>{{policy.project}}</td>
+                                                <td>{{policy.Expert}}</td>
+                                                <td>{{policy.Type}}</td>
+                                                <td>{{policy.PropertyAdded}}</td>
+                                               
+                                                <td style="margin-left:20px">₹{{policy.AmountPaid}}</td>
+                                                <td>{{policy.PaymentDate}}</td>
+                                                <td>
+                                                   <div class="dropdown">
+                                                       <div class="container4" id="menu1" data-toggle="dropdown">
+                                                               <div class="bar1"></div>
+                                                               <div class="bar2"></div>
+                                                               <div class="bar3"></div>
+                                                       </div>
+                                                       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">View Details</a></li>
+                                                               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Download Reports</a></li>
+                                                               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Location</a></li>
+                                                               <li role="presentation" class="divider"></li>
+                                                               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>    
+                                                       </ul>
+                              
+                                                   </div>
+                                                  
+                                               </td>
+                                                
+                                                
+                                                </tr>
+
+                                                <tr>
+                          
+                                                </tr>
+                                                <tr id="collapse1" class="panel-collapse line" [class.collapse]='current != i'>
+                                                      <td class="text-left" colspan="8">
+                                                           <div class="row">
+                                                              <div class="col-md-4">
+                                                                  <div class="table2">
+
+                                                                        <table class="table" style="border-right:2px solid red">
+                                                                            <tr>
+                                                                                <td>Project</td>
+                                                                                <td>Imperia Gala Residents</td>
+                                                                            </tr>
+                                             
+                                                                            <tr>
+                                                                                 <td>ID</td>
+                                                                                 <td>{{policy.propertyid}}</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                 <td>Builder</td>
+                                                                                 <td>Lateral Exploits</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                 <td>Property Type</td>
+                                                                                 <td>Residentials</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                 <td>Total Wing</td>
+                                                                                 <td>4</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                 <td>No of Units</td>
+                                                                                 <td>322</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                 <td>Total Floor</td>
+                                                                                 <td>20</td>
+                                                                             </tr>
+                                                                             <tr>
+                                                                                 <td>Surveyor</td>
+                                                                                 <td>Rohit Patil</td>
+                                                                             </tr>
+                                                                        </table> 
+                                                                        
+                                                                     </div>
+                                                              </div>
+                                                              <div class="col-md-4">
+                                                                  <div class="table2">
+                                                                        <table class="table">
+                                                                             <tr>
+                                                                                    <td>Address</td>
+                                                                                    <td>Ravi Tenament New Ranip, Chenpur Rd, 
+                                                                                            New Ranip, Ahmedabad, Gujarat - 382470
+                                                                                            Ranip
+                                                                                            Ahmedabad
+                                                                                            Gujarat
+                                                                                            345456
+                                                                                    </td>
+                                                                                </tr>
+                                                 
+                                                                                <tr>
+                                                                                     <td>Area</td>
+                                                                                     <td>Ranip</td>
+                                                                                 </tr>
+                                                                                 <tr>
+                                                                                     <td>City</td>
+                                                                                     <td>Ahmedabad</td>
+                                                                                 </tr>
+                                                                                 <tr>
+                                                                                     <td>State</td>
+                                                                                     <td>Gujarat</td>
+                                                                                 </tr>
+                                                                                 <tr>
+                                                                                     <td>Pincode</td>
+                                                                                     <td>345465</td>
+                                                                                 </tr>
+                                                                                
+                                                                            </table> 
+                                                                        </div>
+                                                               </div>  
+                                                               
+                                                               <div class="col-md-3 table2">
+                                                                     <img src="assets/image/maps.jpg" alt="" style="width: 300px;height:270px">
+                                                             </div>
+                                                           </div>
+      
+                                                         </td>
+
+                                                          
+                                                </tr>
+                                               
+
+                                          </tbody>
+                                 </table> 
+                              
+                                <!-- <div class="panel panel-default" *ngFor="let item of items; let i = index">
+                                    <div class="panel-heading" (click) = "current = i">
+                                         <h5 class="panel-title">
+                                             <span *ngIf="i != current"><i class="fas fa-angle-right"></i>
+
+                                             </span> 
+                                             <span *ngIf="i == current"><i class="fas fa-angle-down"></i>
+
+                                             </span> 
+                                         <a>{{item.title}}</a>   
+                                         
+                                         </h5>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
+                                        <div class="panel-body">{{item.description}}</div>
+                                      </div>
+                                 </div> -->
+                            </div>
+     
+                    </div>
+                  
+    
+                 </div>    
+            </div>
+    
+
+    </div>     
+ </div>  

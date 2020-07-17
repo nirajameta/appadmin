@@ -1,0 +1,77 @@
+<section class="container-fluid">
+    <section class="login-form directionimg">
+      <section>
+        <img src="assets/image/logo.svg" alt="" />
+      </section>
+      <div class="loginbox">
+        <div class="logina">
+        </div>
+        <div class="white-panel" *ngIf="displaydiv">
+          <h4>Reset Password</h4>
+          <br>
+          <div class="divset" style="width:70%; margin:0 auto;">
+            <form method="post">
+              <div class="form-group">
+                <label>New Password</label>
+                <div class="input-group">
+                    <input type="password" name="password" id="password" placeholder="enter password" class="box form-control" data-toggle="password">
+                    
+                </div>
+            </div> 
+
+              <div class="form-group">
+                    <label>Confirm Password</label>
+                <input type="email" name="email" placeholder="enter name/ email" required class="box form-control" />
+              </div>
+
+                
+                
+              
+             
+             
+              <button type="submit" name="go" class="btn submitbtn btn-primary btn-block" (click) = "successmsg()
+              " style="opacity: 1;margin-top:40px">Reset my Password</button>
+            </form>
+            <div class="backlogin" routerLink="/login">
+                    <img src="assets/image/goback.svg" alt="" />
+                    <a>or Back to Login</a>
+            </div>
+
+          </div>
+        </div>
+
+      
+      </div>
+
+      
+        <div class="loginbox1" *ngIf="!displaydiv">
+
+          <div style=" background-color: #ffdbc5;
+          min-width: 35%;
+          min-height: 380px; 
+          right: 20%;
+          top: 30%;
+          position: absolute;
+          z-index: 2;">
+             
+          </div>
+           
+            
+          <div class="white-panel1 text-center">
+                 
+                    <h5>Successful password reset!</h5><br>
+                     <p>you can login to your account
+                      using new password</p><br>
+                  <button type="submit" name="go" class="btn submitbtn btn-primary btn-block" routerLink="/login">Login</button>
+
+          </div>
+        </div>
+            
+
+           
+      
+      
+
+      
+    </section>
+  </section>

@@ -1,0 +1,66 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%;float:right;background-color: #fff3eb">
+   <app-header></app-header>
+
+   <div class="container-fluid">
+        <div class="row head" style="padding:30px 2px 22px 20px">
+                <div class="col-md-6">
+                    <h5></h5>
+                </div>
+                <div class="col-md-5 offset-md-1 text-right ">
+                    <button  type="button" class="btn" (click)="adduser()" >Add {{user | titlecase}}</button>
+                </div>
+            </div>
+        
+
+    </div>
+
+    <div class="Surveyorbox">
+        <ul class="tableview">
+            <li class="form-group searchbtn">
+                <div class="input-group" style="width:350px;">
+                    <input type="text" name="search" [(ngModel)]="filter" style="border-style: solid;
+                        border-width: 1px 0 1px 1px;
+                        border-color:black;height:32px;border-radius: 0" class="form-control input-sm box2" name="firstName" placeholder="Search Location, Project or Landmark">
+                        <div class="input-group-append" style="height:32px;">
+                            <button class="btn btn-primary" style="background-color: #fff2ea;color:black;border-radius: 0;border-color: black"> <span class="fa fa-search"></span></button>  
+                        </div>
+                </div>
+            </li>
+        </ul> 
+       
+
+        <table class="table">
+            <thead>
+                <th><input type="checkbox" ></th>
+                <th>No</th>
+                <th>Full Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Joined Date</th>
+            </thead>
+            <!-- <div *ngIf="!subscription?.closed">loading...</div> -->
+            <tbody>
+                <tr *ngFor="let policy of table let i = index">
+                    <td><input type="checkbox" ></td>
+                    <td>{{i+1}}</td>
+                    
+                    <td>{{policy.fullName|titlecase}}</td>
+                 
+                    <td>{{policy.contact}}</td>
+                   
+                    <td>{{policy.email}}</td>
+                   
+                    <td>{{policy.gender}}</td>
+
+                    <td>{{policy.joining_date | date}}</td>
+                   
+                    </tr>
+            </tbody>
+
+        </table>
+    </div>     
+
+
+</div>         

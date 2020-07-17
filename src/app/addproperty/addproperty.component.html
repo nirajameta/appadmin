@@ -1,0 +1,231 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%; float:right;background-color: #fff3eb">
+   <app-header></app-header>
+
+   <div class="container-fluid">
+        <div class="row head" style="padding:30px 0px 10px 20px">
+            <div class="col-md-5">
+              <h5>Add New Property</h5>
+            </div>
+         </div>
+    </div>
+
+   
+    <div class="addpropertybox">
+            <div class="row" *ngIf = "displaymessage">
+                <div class="col-md-3 imagemargin">
+                   
+                        <!-- <img  src="assets/image/avatar1.png" alt="" style="width: 183px;height:183px;">
+                        <div>
+                            <button type="button" class="btn">Upload Photo</button>
+                        </div> -->
+                   
+                </div>
+                <div class="col-md-7">
+                   <form name="form" (ngSubmit)="f.form.valid && onSubmitaddproperty()" #f="ngForm"> 
+                   <div class="pinfo">
+                       <div class="row">
+                           <div class="col-md-6">
+                                <h5>Property Details</h5>
+                           </div>
+                           <div class="col-md-6 text-right">
+                                <p>*All Fields are mandatory</p>
+                           </div>
+                       </div>
+                       
+                    
+                         <hr style="margin-top:0">
+                      
+                            <div class="form-group">
+                                <label>Project Name</label>
+                                <input type="text" class="box1 form-control" id="projectname" placeholder="Project Name" name="email" [(ngModel)]="property.project_name" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+                                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                                    <div *ngIf="email.errors.required">Project Name is required</div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Builder</label>
+                                <input type="text" class="box1 form-control" id="builder" placeholder="enter name" name="builder" [(ngModel)]="property.builder"  #builder="ngModel" [ngClass]="{ 'is-invalid': f.submitted && builder.invalid }" required >
+                                <div *ngIf="f.submitted && builder.invalid" class="invalid-feedback">
+                                    <div *ngIf="builder.errors.required">Builder Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="position:relative">
+                                    <label for="sel1">Project Type</label>
+                                    <select class="form-control" id="prop_type" name="prop_type" [(ngModel)]="property.prop_type" #prop_type="ngModel" [ngClass]="{ 'is-invalid': f.submitted && prop_type.invalid }" required>
+                                      <option value="">Select Property Type</option> 
+                                      <option value="Residential">Residential</option>
+                                      <option value="Commercial">Commercial</option>
+                                     
+                                    </select>
+                                    <div *ngIf="f.submitted && prop_type.invalid" class="invalid-feedback">
+                                        <div *ngIf="prop_type.errors.required">Property Type is required</div>
+                                    </div>
+                                    <span style="position:absolute;top:42px;right:10px" ><i class="fa fa-caret-down"></i></span>
+                            </div> 
+                            
+                            <!-- <div class="form-group" style="position:relative">
+                                    <label for="sel1">Add Location</label>
+                                    <input type="text" class="box1 form-control" id="name" placeholder="enter name" name="name" [(ngModel)]="property.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required>
+                                    <span style="position:absolute;top:42px;right:10px">
+                                            <img src= "/assets/image/location.svg" (click)="currentlocation(change.value,property)" alt="" style="width: 17px;
+                                            height: 21px;
+                                            object-fit: contain;
+                                            opacity: 0.79;">
+                                    </span>
+                                    <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                                        <div *ngIf="name.errors.required">Location is required</div>
+                                    </div>
+                                    <br>
+                                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"> 
+                                            <agm-marker [latitude]="lat" [longitude]="lng">
+                                             </agm-marker> 
+                                    </agm-map>
+
+
+                            </div>  -->
+                            <div class="form-group">
+                                    <label>Street 1</label>
+                                    <textarea class="box1 form-control" rows="2" id="street1" placeholder="Street1 Address" name="street1" [(ngModel)]="property.street1" #street1="ngModel" [ngClass]="{ 'is-invalid': f.submitted && street1.invalid }" required></textarea>
+                                    <div *ngIf="f.submitted && street1.invalid" class="invalid-feedback">
+                                        <div *ngIf="street1.errors.required">Street1 is required</div>
+                                       
+                                    </div>
+                            </div>   
+                            <div class="form-group">
+                                    <label>Street 2</label>
+                                   <textarea class="box1 form-control" id="street1" placeholder="Street2 Address" name="street1" [(ngModel)]="property.street2"></textarea>
+                                   
+                            </div> 
+                            <div class="form-group">
+                                    <label>Area</label>
+                                    <input type="text" class="box1 form-control" id="area" placeholder="Area" name="area" [(ngModel)]="property.area" #area="ngModel" [ngClass]="{ 'is-invalid': f.submitted && area.invalid }" required>
+                                    <div *ngIf="f.submitted && area.invalid" class="invalid-feedback">
+                                        <div *ngIf="area.errors.required">Area is required</div>
+                                       
+                                    </div>
+                            </div>
+
+                            <div class="form-row" style="width:66%">
+                                <div class="form-group col">
+                                    <label>City</label>
+                                    <input type="text" name="city" class="box1 form-control" [(ngModel)]="property.city" #city="ngModel" [ngClass]="{ 'is-invalid': f.submitted && city.invalid }" required>
+                                    <div *ngIf="f.submitted && city.invalid" class="invalid-feedback">
+                                        <div *ngIf="city.errors.required">City is required</div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group col">
+                                    <label>State</label>
+                                    <input type="text" name="state" class="box1 form-control" [(ngModel)]="property.state" #state="ngModel" [ngClass]="{ 'is-invalid': f.submitted && state.invalid }" required>
+                                    <div *ngIf="f.submitted && state.invalid" class="invalid-feedback">
+                                        <div *ngIf="state.errors.required">City is required</div>
+                                        
+                                    </div>
+                                 </div>
+                            </div>
+
+                            <div class="form-row" style="width:66%">
+                                    <div class="form-group col">
+                                        <label>Country</label>
+                                        <input type="text" name="country" class="box1 form-control" [(ngModel)]="property.country" #country="ngModel" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required>
+                                        <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
+                                            <div *ngIf="country.errors.required">Country Name is required</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label>PinCode</label>
+                                        <input type="text" name="pincode" class="box1 form-control" [(ngModel)]="property.pincode" #pincode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && pincode.invalid }" required>
+                                        <div *ngIf="f.submitted && pincode.invalid" class="invalid-feedback">
+                                            <div *ngIf="pincode.errors.required">Pincode is required</div>
+                                        </div>
+                                     </div>
+                                </div>
+
+                   </div> 
+
+                   <div class="assignsurveyor">
+                        <div class="row">
+                                <div class="col-md-12">
+                                     <h5>Assign to Surveyor</h5>
+                                </div>
+                               
+                        </div>
+                   </div>
+
+                   
+                   <hr style="margin-top:0;margin-bottom:35px;">
+                   <div class="form-group" style="position:relative">
+                       
+                        <select class="form-control" id="surveyor" name="surveyor" [(ngModel)]="property.surveyorID"  (change)="filterForeCasts($event.target.value)" #surveyor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surveyor.invalid }" required>
+                            <option value=''>Select Surveyor</option>
+                            <option *ngFor="let summary of summaries" value={{summary.surveyorID}}>
+                                    {{summary.username | titlecase}}
+                            </option>
+                            <!-- <option>Select Surveyor</option>
+                          <option>Commercial</option>
+                          <option>3</option>
+                          <option>4</option> -->
+                        </select>
+                        <div *ngIf="f.submitted && surveyor.invalid" class="invalid-feedback">
+                            <div *ngIf="surveyor.errors.required">Surveyor name is required</div>
+                        </div>
+                        <span style="position:absolute;top:5px;right:10px" ><i class="fa fa-caret-down"></i></span>
+                </div> 
+
+                  
+
+                   <div class="buttonprofile">
+                        <button type="button" class="btn">Cancel</button>
+                        <button type="submit" class="btn">Add Property</button>
+                   </div>
+                   
+
+                </form>
+                </div>
+              
+            </div>
+
+            <div class="row" *ngIf = "!displaymessage">
+                <div class="col-md-7 offset-md-4">
+                    <h4 class="submitsuccess">Submission Successful</h4>
+                    <hr>
+                  <div class="backsideimg" style="width:620px;height:357px;position:relative">
+
+                   <div style=" width: 56px;
+                   height: 56px;margin:0 auto;">
+                
+                        <img src="assets/image/selected.svg" alt="" style="margin-top:20px">
+                    </div>
+                        
+                        <div class="successpara">
+                         <p>New Property has been successfully added and
+                                will soon forward property details to assigned Surveyor<br>
+                                
+                          </p>
+                          <span style="color: #9b9b9b;margin-top:50px">Generated Property ID - {{propertycode}}</span>
+                        </div>
+                           
+
+                        <div style="width:200px;margin:0 auto">
+                            <button type="button" style="position:absolute;bottom:0px" class="btn" (click)="addanother()">Add Another Property</button> 
+
+                        </div>     
+        
+                              
+                    
+                  
+
+                     
+
+                  </div>  
+
+                </div>
+            </div>
+            
+        </div>
+
+        
+</div>         

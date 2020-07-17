@@ -1,0 +1,77 @@
+  .topnav {
+      overflow: hidden;
+      background-color: white;
+      background-color: #fff3eb;
+  }
+  
+  .topnav a {
+    margin-left:15px;
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 0px 8px;
+    text-decoration: none;
+    font-size: 19px;
+  }
+
+  .topnav .fa-search{
+    opacity:0.5;
+  }
+  
+  .topnav .setwidth{
+    width:9.25em;
+    height: 4.1875em;
+    object-fit: contain;
+    margin:15px 0 0 15px
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .topnav-right {
+    float: right;
+  }
+  
+  
+  
+  
+  
+  .example input[type=text] {
+   
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    padding:2px 0;
+    width: 49%;
+    background: #ffffff;
+  }
+  
+  .example button {
+    float: left;
+    width: 5%;
+    padding:5px 0;
+    font-family: Gotham;
+    background: #ffefe6;
+    color: black;
+    font-size: 12px;
+    border: 1px solid black;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  .boxsearch::-webkit-input-placeholder {
+    font-family: Gotham;
+    font-size: 12px;
+    font-weight: normal;
+    padding-left:15px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.34px;
+    color: #000000;
+  }
+  
+
+

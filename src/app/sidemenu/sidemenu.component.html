@@ -1,0 +1,63 @@
+
+
+
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" (click)= "closeNav()">&times;</a>
+    <div class="overlay-content">
+      <span *ngIf="usertype == 'admin'|| usertype == 'expert'" routerLink="/dashboard"><img src="assets/image/dashboard.svg" alt="" style="width: 28px;height: 28px;"><a>Dashboard</a></span> <br>
+      <span>
+        <img src="assets/image/building.svg" alt="" style="width: 29px;height: 33px;">
+        <a>Property</a><br>
+        <a class="elementshift"  *ngIf="usertype == 'admin'|| usertype == 'expert'" routerLink="/pendingpropertylist">Pending Property<br></a>
+        <a class="elementshift" *ngIf="usertype == 'admin'|| usertype == 'expert'" routerLink="/completedproperty">Completed Property<br></a>
+        <a class="elementshift"  routerLink="/newproperty" *ngIf="usertype == 'supporter'">New Property<br></a>
+        <a class="elementshift" [routerLink]="['/approvepending', 'approved']" *ngIf="usertype == 'supporter'">Approved Property<br></a>
+        <a class="elementshift" [routerLink]="['/approvepending', 'rejected']" routerLink="/newproperty" *ngIf="usertype == 'supporter'">Rejected Property</a></span> <br>
+      <span *ngIf="usertype == 'admin'"><img src="assets/image/usericon.svg" alt="" style="width: 33px;height: 33px;"><a>Users</a><br><a class="elementshift" routerLink="/surveyor">Survyers</a><br><a class="elementshift" (click)="expertlist()">Expert</a><br><a class="elementshift" (click)="supporterlist()">Supports</a><br><a class="elementshift">Website Users</a></span> 
+
+      <!-- <span><a>Pending Property</a></span> 
+      <span><a>Completed Property</a></span> -->
+      <br> <span routerLink="/settings"><img src="assets/image/settings.svg"><a>User Settings </a></span>
+    
+     
+    </div>
+  </div>
+
+
+  <div class="sidebar">
+    <a (click)= "openNav()"> <img src="assets/image/menu.svg" alt="" style="width: 28px;height: 14px;"></a>
+    <a *ngIf="usertype == 'admin'|| usertype == 'expert'" (click)="gotodasgboard()" routerLink="/dashboard"><img src="assets/image/dashboard.svg" alt="" style="width: 28px;height: 28px;"> </a>
+    <a><img src="assets/image/building.svg" alt="" style="width: 29px;height: 33px;"></a>
+    <a routerLink="/surveyor" *ngIf="usertype == 'admin'"><img src="assets/image/usericon.svg" alt="" style="width: 34px;height: 27px;"></a>
+    <a routerLink="/settings"><img src="assets/image/settings.svg" alt="" style="width: 33px;height: 33px;"></a>
+  </div>
+
+  <ul class="sidebar">
+      <li>
+          <a (click)= "openNav()"> <img src="assets/image/menu.svg" alt="" style="width: 28px;height: 14px;"></a>
+  
+      </li>
+      <li>
+          <a *ngIf="usertype == 'admin'|| usertype == 'expert'" (click)="gotodasgboard()" routerLink="/dashboard"><img src="assets/image/dashboard.svg" alt="" style="width: 28px;height: 28px;"> </a>
+  
+      </li>
+  
+      <li>
+          <a *ngIf="usertype == 'admin'|| usertype == 'expert'"  (click)="gotoproperty()" ><img src="assets/image/building.svg" alt="" style="width: 29px;height: 33px;"></a>
+          
+      </li>
+
+      <li>
+          <a routerLink="/surveyor" *ngIf="usertype == 'admin'"><img src="assets/image/usericon.svg" alt="" style="width: 34px;height: 27px;"></a>
+  
+      </li>
+
+      <li>
+          <a routerLink="/settings"><img src="assets/image/settings.svg" alt="" style="width: 33px;height: 33px;"></a> 
+  
+      </li>
+      
+    </ul>                    
+
+<!-- <p>Click on the element below to open the fullscreen overlay navigation menu.</p>
+<span style="font-size:30px;cursor:pointer">&#9776; open</span> -->

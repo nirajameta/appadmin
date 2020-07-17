@@ -1,0 +1,520 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%; float:right;background-color: #fff3eb">
+  <app-header ></app-header>
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-md-6" style="padding:10px 0 20px 12px">
+        <h4 class="pendingh4" style="margin-left:20px"> Pending Properties - <span>Imperia Gala Residents</span> - <span style="font-weight: 500" >Unit No. {{Unitno}}</span></h4>
+      </div>
+    </div>
+    <div class="userdetails">
+      <div class="row text-left">
+        <div class="col-md-8" >
+          <h5><strong>About Property</strong></h5>
+          <div class="row" style="margin-top:10px">
+            <div class="col-md-5" style="padding-left:35px">
+              <table class="table" *ngFor="let unitd of unitdata">
+                <tr>
+                  <td>Unit no.</td>
+                  <td>{{unitd.unitno}}</td>
+                </tr>
+                <tr>
+                  <td>Facing</td>
+                  <td>EW</td>
+                </tr>
+                <tr>
+                  <td>BHK</td>
+                  <td>{{unitd.bhk}}</td>
+                </tr>
+                <tr>
+                  <td>sq ft</td>
+                  <td>{{unitd.sq_feet}}</td>
+                </tr>
+                <tr>
+                  <td>Rate</td>
+                  <td>{{unitd.rate}}</td>
+                </tr>
+                <tr>
+                  <td>Floor</td>
+                  <td>{{unitd.floor}}</td>
+                </tr>
+                <tr>
+                  <td>Remark</td>
+                  <td>{{unitd.remarks}}</td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-md-1 text-center">
+              <div style="border-left: 2px solid #ffdbc5;
+                height:19em;">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <table class="table" *ngFor="let data of addressdetail">
+                <tr>
+                  <td>Address</td>
+                  <td>{{data.address}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>{{data.area}}</td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td>{{data.city}}</td>
+                </tr>
+                <tr>
+                  <td>State</td>
+                  <td>{{data.state}}</td>
+                </tr>
+                <tr>
+                  <td>Pincode</td>
+                  <td>{{data.pincode}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="width:334px">
+          <img src="assets/image/maps.jpg" alt="" style="width: 100%;height:100%;">   
+        </div>
+      </div>
+    </div>
+    <div class="gallary">
+      <!-- <div class="row">
+        <div class="col-md-3">
+            <p>Image1</p>
+            <img src="assets/image/maps.jpg" id="img1" alt="Snow" style="
+            height: 253px;">
+        </div>
+        </div> -->
+      <div class="threeimage">
+        <div class="col-item">
+          <h5>Layout Plan</h5>
+          <div class="bottom-right">
+            <button type="btn" class="btn btn-plussign"><i class="fa fa-plus" style="color:#000"  aria-hidden="true"></i>
+            </button>
+          </div>
+          <img  src="assets/image/maps.jpg" id="img1" alt="Snow" style="width:100%;height:270px;padding-right: 20px;border-right:1px solid #ffdbc5;">
+        </div>
+        <div class="col-item">
+          <h5>Satellite view</h5>
+          <div class="bottom-right">
+            <button type="btn" class="btn btn-plussign"><i class="fa fa-plus" style="color:#000"  aria-hidden="true"></i>
+            </button>
+          </div>
+          <img  src="assets/image/maps.jpg" id="img1" alt="Snow" style="width:100%;height:270px;padding-right: 20px;border-right:1px solid #ffdbc5;">
+        </div>
+        <div class="col-item">
+          <h5>Brochure</h5>
+          <div class="bottom-right">
+            <button type="btn" class="btn btn-plussign"><i class="fa fa-plus" style="color:#000"  aria-hidden="true"></i>
+            </button>
+          </div>
+          <img  src="assets/image/maps.jpg" id="img1" alt="Snow" style="width:100%;height:270px;">
+        </div>
+      </div>
+    </div>
+    <div class="evalutepro">
+      <h4>Evaluate Property</h4>
+      <div class="row marginrow">
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card" (click)="select(0)" [ngClass]="{active: isActive(0)}" > 
+              <div class="card-body">
+                <div class="top-right">
+                  <i *ngIf="unit_evalution[0]?.rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+                </div>
+                <img src="assets/image/main-door.svg" style="width:61px;height:82px">
+                <div class="cardcontain">
+                  <p>Main Entrance</p>
+                  <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[0]?.direction}}&nbsp;
+                    <!-- <span *ngIf="unit_evalution[0]?.rating ==1">
+                    <span class="fa fa-star checked" ></span>
+                    </span> 
+                    <span *ngIf="unit_evalution[0]?.rating ==2">
+                    <span class="fa fa-star checked" ></span>
+                    <span class="fa fa-star checked"></span>
+                    </span>  -->
+                    <img *ngIf="unit_evalution[0]?.rating !==null" src = "{{getStars(unit_evalution[0]?.rating)}}" style="width:25px;height:16px">
+
+                    <!-- <span class="stars alignright"><span [ngStyle]="{ 'width': getStars(unit_evalution[0]?.rating) }"></span></span>  -->
+                    {{unit_evalution[0]?.rating}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" (click)="select(1)" [ngClass]="{active: isActive(1)}">
+            <div class="card-body">
+              <div class="top-right">
+                <i *ngIf="unit_evalution[1].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+              </div>
+              <img src="assets/image/bar.svg" style="width:82px;height:82px">
+              <div class="cardcontain">
+                <p>Kitchen </p>
+                <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[1].direction}}&nbsp;
+                  <!-- <span *ngIf="unit_evalution[1].rating ==1">
+                  <span class="fa fa-star checked" ></span>
+                  </span> 
+                  <span *ngIf="unit_evalution[1].rating ==2">
+                  <span class="fa fa-star checked" ></span>
+                  <span class="fa fa-star checked"></span>
+                  </span>  -->
+                  <img *ngIf="unit_evalution[1]?.rating !==null" src = "{{getStars(unit_evalution[1]?.rating)}}" style="width:25px;height:16px">
+
+                  <!-- <span class="stars alignright"><span [ngStyle]="{ 'width': getStars(unit_evalution[1]?.rating) }"></span></span>  -->
+                  {{unit_evalution[1].rating}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" (click)="select(2)" [ngClass]="{active: isActive(2)}">
+          <div class="card-body">
+            <div class="top-right">
+              <i *ngIf="unit_evalution[2].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+            </div>
+            <img src="assets/image/sofa.svg" style="width: 105px;height: 82px;">
+            <div class="cardcontain">
+              <p>Living Room </p>
+              <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[2].direction}}&nbsp;
+                <!-- <span *ngIf="unit_evalution[2].rating ==1">
+                <span class="fa fa-star checked" ></span>
+                </span> 
+                <span *ngIf="unit_evalution[2].rating ==2">
+                <span class="fa fa-star checked" ></span>
+                <span class="fa fa-star checked"></span>
+                </span>  -->
+                <img src = "{{getStars(unit_evalution[2]?.rating)}}" style="width:25px;height:16px">
+
+                <!-- <span class="stars alignright"><span [ngStyle]="{ 'width': getStars(unit_evalution[2]?.rating) }"></span></span>  -->
+                {{unit_evalution[2].rating}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row margin_t10">
+      <div class="col-md-4">
+        <div class="card" (click)="select(3)" [ngClass]="{active: isActive(3)}">
+        <div class="card-body">
+          <div class="top-right">
+            <i *ngIf="unit_evalution[3].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+          </div>
+          <img src="assets/image/shape.svg" style="width: 115px;height: 81px;">
+          <div class="cardcontain">
+            <p>Master Bed Room </p>
+            <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[3].direction}}&nbsp;
+              <!-- <span *ngIf="unit_evalution[3].rating ==1">
+              <span class="fa fa-star checked" ></span>
+              </span> 
+              <span *ngIf="unit_evalution[3].rating ==2">
+              <span class="fa fa-star checked" ></span>
+              <span class="fa fa-star checked"></span>
+              </span> -->
+              <img *ngIf="unit_evalution[2]?.rating !==null" src = "{{getStars(unit_evalution[3]?.rating)}}" style="width:25px;height:16px">
+              <!-- <span class="stars alignright"><span [ngStyle]="{ 'width': getStars(unit_evalution[3]?.rating) }"></span></span>  -->
+               {{unit_evalution[3].rating}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" (click)="select(4)" [ngClass]="{active: isActive(4)}">
+      <div class="card-body">
+        <div class="top-right">
+          <i *ngIf="unit_evalution[4].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+        </div>
+        <img src="assets/image/crib.svg" style="width: 82px;height: 82px;">
+        <div class="cardcontain">
+          <p>Kids Bed Room </p>
+          <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[4].direction}}&nbsp;
+            <span *ngIf="unit_evalution[4].rating ==1">
+            <span class="fa fa-star checked" ></span>
+            </span> 
+            <span *ngIf="unit_evalution[4].rating ==2">
+            <span class="fa fa-star checked" ></span>
+            <span class="fa fa-star checked"></span>
+            </span> {{unit_evalution[4].rating}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card" (click)="select(5)" [ngClass]="{active: isActive(5)}">
+    <div class="card-body">
+      <div class="top-right">
+        <i *ngIf="unit_evalution[5].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+      </div>
+      <img src="assets/image/stairs.svg" style="width: 82px;height: 82px;">
+      <div class="cardcontain">
+        <p>Staircase</p>
+        <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[5].direction}}&nbsp;
+          <span *ngIf="unit_evalution[5].rating ==1">
+          <span class="fa fa-star checked" ></span>
+          </span> 
+          <span *ngIf="unit_evalution[5].rating ==2">
+          <span class="fa fa-star checked" ></span>
+          <span class="fa fa-star checked"></span>
+          </span> {{unit_evalution[5].rating}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row margin_t10">
+  <div class="col-md-4">
+    <div class="card" (click)="select(6)" [ngClass]="{active: isActive(6)}">
+    <div class="card-body">
+      <div class="top-right">
+        <i *ngIf="unit_evalution[6].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+      </div>
+      <img src="assets/image/pooja.svg" style="width: 73px;height: 81px;">
+      <div class="cardcontain">
+        <p>Pooja Room</p>
+        <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[6].direction}}&nbsp;
+          <span *ngIf="unit_evalution[6].rating ==1">
+          <span class="fa fa-star checked" ></span>
+          </span> 
+          <span *ngIf="unit_evalution[6].rating ==2">
+          <span class="fa fa-star checked" ></span>
+          <span class="fa fa-star checked"></span>
+          </span> {{unit_evalution[6].rating}}
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card" (click)="select(7)" [ngClass]="{active: isActive(7)}">
+  <div class="card-body">
+    <div class="top-right">
+      <i *ngIf="unit_evalution[7].rating !== null" class="fa fa-check-circle"  aria-hidden="true"></i>
+    </div>
+    <img src="assets/image/tank.svg" style="width: 86px;height: 81px;">
+    <div class="cardcontain">
+      <p>Water Tank / Boring</p>
+      <p> <img src="assets/image/arrow.jpg" style="width:12px;height:12px">&nbsp;{{unit_evalution[7].direction}}&nbsp;
+        <span *ngIf="unit_evalution[7].rating ==1">
+        <span class="fa fa-star checked" ></span>
+        </span> 
+        <span *ngIf="unit_evalution[7].rating ==2">
+        <span class="fa fa-star checked" ></span>
+        <span class="fa fa-star checked"></span>
+        </span> {{unit_evalution[7].rating}}
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+  <div *ngIf = "!displaydirection">
+    <div class="sidedirection" *ngFor="let direction of display let i = index">
+      <div style="width:auto; margin:0 auto">
+        <p style="font-family: Gotham"><span style="color: #4a4a4a;font-weight:500">Select Direction</span> - <span style="color: #666666;font-weight:500;" (click)="checkIcon(i)" >{{direction.areaName}}</span></p>
+      </div>
+      <div class="width_283" style="margin:0 auto">
+        <div class="row">
+          <div class="column" style="position:relative">
+            
+
+              <!-- <div class="colorchange1" style="position:absolute;right:0;top:0">
+                  <div class="property1" [ngClass]="{active: isActive1('NW-N')}" (click)="clickevent('NW-N')">
+                      <span style="color:black;font-size:12px;position:absolute;right:0;bottom:22px;width:50px" >NW-N</span>
+                    
+                  </div>
+              </div>
+              <div class="colorchange" style="position:absolute;bottom:0;left:0">
+                  <div class="property" [ngClass]="{active: isActive1('NW-W')}" (click)="clickevent('NW-W')">
+                      <span style="color:black;font-size:12px;position:absolute;top:22px;width:50px" >NW-W</span>
+                    
+                  </div>
+              </div> -->
+              <div class='square'>
+                <div class='inner-element-1' id="myDiv1" [ngClass]="{active: isActive1('NE-N')}" (click)="clickevent('NE-N')">    </div>
+                <div class='inner-element-2' id="myDiv2" [ngClass]="{active: isActive1('NE-E')}" (click)="clickevent('NE-E')">  </div> 
+              </div>
+
+
+
+
+          </div>
+          <div class="column bigbutton">
+            <button class="card_d" style="background-color: #9abc75;position: absolute;" [ngClass]="{active: isActive1('N')}" (click)="clickevent('N')">
+            <span style="color:black;font-size:12px;">N</span>
+            </button>
+          </div>
+          <div class="column" style="position:relative">
+            <!-- <div class="card_d">
+       
+              <div class="colorchange2" style="position:absolute;left:0;top:0">
+                  <div class="property2" [ngClass]="{active: isActive1('NE-N')}" (click)="clickevent('NE-N')" style="position:relative">
+                      <span style="color:black;font-size:12px;position:absolute;left:0;bottom:22px;width:50px" >NE-N</span>
+                    
+                  </div>
+              </div>
+              <div class="colorchange3" style="position:absolute;bottom:0;right:0">
+                  <div class="property3" [ngClass]="{active: isActive1('NE-E')}" (click)="clickevent('NE-E')" style="position:relative">
+                      <span style="color:black;font-size:12px;position:absolute;top:22px;right:0;width:50px" >NE-E</span>
+                    
+                  </div>
+              </div>
+
+            </div> -->
+          </div>
+        </div>
+     
+     
+      </div>
+      <div class="width_350" style="margin:0 auto">
+        <form name="form">
+          <div class="rate" style="margin-top:20px" >
+            <p class="textinput">Rate &nbsp;&nbsp;</p>
+            <select class="arrows" name="rating" [(ngModel)]="rating">
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            </select>
+          </div>
+          <hr style="width:100%">
+          <div class="paratip">
+            <p>Nunc auctor cursus commodo. Curabitur sed turpis eu nisl tristique scelerisque. Aenean eu accumsan arcu. Ut ut porta nibh, sit amet efficitur ligula.
+            </p>
+            <h4>Add Tips</h4>
+            <textarea rows="3" name="tips" [(ngModel)]="tips">
+            </textarea>
+            <hr style="width:100%">
+            <div *ngIf = "showonlastindex">
+              <h4>Property Conclusion</h4>
+              <textarea rows="3">
+              </textarea>
+            </div>
+            <p style="color:red">{{directionmsg}}</p>
+
+            <div class="buttontip">
+              <button type="button" class="btn btn-primary">Cancel</button> 
+              <button type="button" class="btn btn-primary" style="margin-left: 10px" (click)="saveSubmitButton()">Submit</button> 
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="sidecard" *ngIf = "displaydirection">
+    <table>
+      <tr>
+        <td>
+          <h5>Total Rating</h5>
+        </td>
+        <td>
+          <span><i class="fa fa-star" style="padding:0 5px" aria-hidden="true"></i><b>3.5</b>/10</span>
+        </td>
+      </tr>
+      <tr>
+        <hr>
+      </tr>
+      <tr>
+        <td>
+          <h5>Room Type</h5>
+        </td>
+        <td>
+          <h5>Rated</h5>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Main Enterence/Gate</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[0]?.rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Kitchen</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[1].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Living Room</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[2].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Master Bed Room</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[3].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Staircase</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[4].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Staircase/Lift</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[5].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Puja Room</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[6].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>Water Tank/Boring</h5>
+        </td>
+        <td>
+          <span><i *ngIf="unit_evalution[7].rating !== null" class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+    <!-- <div style="position: absolute;
+                bottom: 0px;
+                left: 5px;cursor: pointer;height:50px;width:50px"  (click)="clickevent('NW-W')"><span style="color:black;font-size:12px;">NW-W</span>
+              </div> -->
+              
+              <!-- <div style="position: absolute;
+                top: 0px;
+                right: 0px;cursor: pointer;height:50px;width:50px"><span style="color:black;font-size:12px;" [ngClass]="{active: isActive1('NW-N')}"  (click)="clickevent('NW-N')">NW-N</span>
+              </div> -->

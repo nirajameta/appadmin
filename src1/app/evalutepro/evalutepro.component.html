@@ -1,0 +1,386 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%; float:right;background-color: #fff3eb">
+   <app-header ></app-header>
+   <div class="container-fluid">
+      <br>
+      <div class="row">
+         <div class="col-md-12">
+            <h4 class="pendingh4"> All Properties - <span>Imperia Gala Residents</span></h4>
+         </div>
+      </div>
+      <div class="userdetails">
+         <div class="row text-left">
+            <div class="col-md-8">
+               <h5><strong>About Property</strong></h5>
+               <div class="row" style="margin-top:10px">
+                  <div class="col-md-5" style="padding-left:35px">
+                     <table class="table1">
+                        <tr>
+                           <td>Project</td>
+                           <td>Imperia Gala Residents</td>
+                        </tr>
+                        <tr>
+                           <td>ID</td>
+                           <td>R029</td>
+                        </tr>
+                        <tr>
+                           <td>Builder</td>
+                           <td>Lateral Exploits</td>
+                        </tr>
+                        <tr>
+                           <td>Property Type</td>
+                           <td>Residentials</td>
+                        </tr>
+                        <tr>
+                           <td>Total Wing</td>
+                           <td>4</td>
+                        </tr>
+                        <tr>
+                           <td>No of Units</td>
+                           <td>322</td>
+                        </tr>
+                        <tr>
+                           <td>Total Floor</td>
+                           <td>20</td>
+                        </tr>
+                        <tr>
+                           <td>Surveyor</td>
+                           <td>Rohit Patil</td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="col-md-1 text-center">
+                     <div style="border-left: 2px solid #ffdbc5;
+                        height:19em;">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <table class="table1">
+                        <tr>
+                           <td>Address</td>
+                           <td>Ravi Tenament New Ranip, Chenpur Rd, 
+                              New Ranip, Ahmedabad, Gujarat - 382470
+                              Ranip
+                              Ahmedabad
+                              Gujarat
+                              345456
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Area</td>
+                           <td>Ranip</td>
+                        </tr>
+                        <tr>
+                           <td>City</td>
+                           <td>Ahmedabad</td>
+                        </tr>
+                        <tr>
+                           <td>State</td>
+                           <td>Gujarat</td>
+                        </tr>
+                        <tr>
+                           <td>Pincode</td>
+                           <td>345465</td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4" style="width:334px">
+               <img src="assets/image/maps.jpg" alt="" style="width: 100%;height:100%;">   
+            </div>
+         </div>
+      </div>
+      <div class="gallary">
+         <!-- <div class="row">
+            <div class="col-md-3">
+                <p>Image1</p>
+                <img src="assets/image/maps.jpg" id="img1" alt="Snow" style="
+                height: 253px;">
+            </div>
+            </div> -->
+         <div class="threeimage">
+            <div class="col-item">
+               <h5>Layout Plan</h5>
+               <img  src="assets/image/maps.jpg" id="img1" alt="Snow" style="width:100%;height:100%;padding-right: 20px;border-right:1px solid #ffdbc5;">
+            </div>
+            <div class="col-item">
+               <h5>Satellite view</h5>
+               <img  src="assets/image/maps.jpg" id="img1" alt="Snow" style="width:100%;height:100%;padding-right: 20px;border-right:1px solid #ffdbc5;">
+            </div>
+            <div class="col-item">
+               <h5>Brochure</h5>
+               <img  src="assets/image/maps.jpg" id="img1" alt="Snow" style="width:100%;height:100%;">
+            </div>
+         </div>
+      </div>
+      <div class="evalutepro">
+         <h4>Evaluate Property</h4>
+         <div class="row marginrow">
+            <div class="col-md-8">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="card demo cursor"  (click)="currentSlide(1)">
+                        <div class="card-body">
+                           <div class="top-right">
+                              <i class="fa fa-check-circle"  aria-hidden="true"></i>
+                           </div>
+                           <img src="assets/image/main-door.svg" style="width:61px;height:82px">
+                           <div class="cardcontain">
+                              <p>Main Entrance <br>swsasasasa</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(2)">
+                        <div class="card-body">
+                           <div class="top-right">
+                              <i class="fa fa-check-circle"  aria-hidden="true"></i>
+                           </div>
+                           <img src="assets/image/bar.svg" style="width:82px;height:82px">
+                           <div class="cardcontain">
+                              <p>Kitchen </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(3)">
+                        <div class="card-body">
+                           <div class="top-right">
+                              <i class="fa fa-check-circle"  aria-hidden="true"></i>
+                           </div>
+                           <img src="assets/image/sofa.svg" style="width: 105px;height: 82px;">
+                           <div class="cardcontain">
+                              <p>Living Room </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row margin_t10">
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(4)">
+                        <div class="card-body">
+                           <div class="top-right">
+                              <i class="fa fa-check-circle"  aria-hidden="true"></i>
+                           </div>
+                           <img src="assets/image/shape.svg" style="width: 115px;height: 81px;">
+                           <div class="cardcontain">
+                              <p>Master Bed Room </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(5)">
+                        <div class="card-body">
+                           <img src="assets/image/crib.svg" style="width: 82px;height: 82px;">
+                           <div class="cardcontain">
+                              <p>Kids Bed Room </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(6)">
+                        <div class="card-body">
+                           <img src="assets/image/stairs.svg" style="width: 82px;height: 82px;">
+                           <div class="cardcontain">
+                              <p>Staircase</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row margin_t10">
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(7)">
+                        <div class="card-body">
+                           <img src="assets/image/pooja.svg" style="width: 73px;height: 81px;">
+                           <div class="cardcontain">
+                              <p>Pooja Room</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card demo cursor" (click)="currentSlide(8)">
+                        <div class="card-body">
+                           <img src="assets/image/tank.svg" style="width: 86px;height: 81px;">
+                           <div class="cardcontain">
+                              <p>Water Tank / Boring</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-md-4">
+              <div *ngIf = "!displaydirection">
+               <div class="sidedirection" *ngFor ="let objname of arrayname">
+                  <div>
+                     <p>{{objname}}</p>
+                  </div>
+                  <div style="width:283px;" >
+                     <div class="row" style="margin:0 auto" >
+                        <div class="column">
+                           <div class="card_d" style="background-image: linear-gradient(45deg, #f7f7f7 50%, #e1e1e1 50%);background-position: right top;">
+                              NW-N
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="card_d" style="background-color: #9abc75">
+                              N
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="card_d" style="background-color: #e8df6d">
+                              NE-N
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row" style="margin:0 auto" >
+                        <div class="column">
+                           <div class="card_d" style="background-color: #58b0dc">
+                              N
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="card_d" style="background-color: #ffffff">
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="card_d" style="background-color: #f7f7f7">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row" style="margin:0 auto" >
+                        <div class="column">
+                           <div class="card_d" style="background-image: linear-gradient(135deg, #d7b758 50%, #dfc579 50%);background-position: right top;">
+                              SW-W
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="card_d" style="background-color: #fa9cc2">
+                           </div>
+                        </div>
+                        <div class="column">
+                           <div class="card_d" style="background-image: linear-gradient(45deg, #e1e1e1 50%, #f7f7f7 50%);background-position: right top;">
+                              SE-E
+                           </div>
+                        </div>
+                     </div>
+                     <div class="rate" style="margin-top:20px" >
+                        <p style="display:inline">Rate </p>
+                        <select class="arrows">
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                        </select>
+                     </div>
+                     <hr style="width:100%">
+                     <div class="paratip">
+                        <p>Nunc auctor cursus commodo. Curabitur sed turpis eu nisl tristique scelerisque. Aenean eu accumsan arcu. Ut ut porta nibh, sit amet efficitur ligula.
+                        </p>
+                        <h4>Add Tips</h4>
+                        <textarea rows="4">
+                                   
+                                </textarea>
+                        <hr style="width:100%">
+                        <h4>Property Conclusion</h4>
+                        <textarea rows="4">
+                                   
+                                </textarea>
+                        <div class="buttontip">
+                           <button type="button" class="btn btn-primary">Cancel</button> 
+                           <button type="button" class="btn btn-primary" style="margin-left: 10px">Submit</button> 
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+               <div class="sidecard" *ngIf = "displaydirection">
+                  <table>
+                     <tr>
+                        <td>
+                           <h5>Total Rating</h5>
+                        </td>
+                        <td>
+                           <span><i class="fa fa-star" style="padding:0 5px" aria-hidden="true"></i><b>3.5</b>/10</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <hr>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Room Type</h5>
+                        </td>
+                        <td>
+                           <h5>Rated</h5>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Main Enterence/Gate</h5>
+                        </td>
+                        <td>
+                           <span><i class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Kitchen</h5>
+                        </td>
+                        <td>
+                           <span><i class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Living Room</h5>
+                        </td>
+                        <td>
+                           <span><i class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Master Bed Room</h5>
+                        </td>
+                        <td>
+                           <span><i class="fa fa-check-circle" style="padding:0 5px" aria-hidden="true"></i></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Staircase</h5>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Master Bed Room</h5>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Puja Room</h5>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <h5>Water Tank/Boring</h5>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+            
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

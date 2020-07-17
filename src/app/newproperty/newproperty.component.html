@@ -1,0 +1,128 @@
+<app-sidemenu></app-sidemenu>
+<div style="width:95%;height:100vh;float:right;background-color: #fff3eb">
+   <app-header ></app-header>
+   <div class="container-fluid">
+        <br> <div class="row">
+               <div class="col-md-12">
+                   <h4 class="Profileh4">New Added Properties</h4>
+                   </div>
+          </div>
+     
+      
+      <div class="row" style="margin:20px 0 40px 0">
+         <div class="jumbotron" style="min-height:350px;width: 98%;padding:1em;position:relative;border-radius: 4px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.06);
+            background-color: #ffffff;margin:0 auto">
+
+            <div class="col-md-12">
+                  <ul class="tableview">
+                        <li class="Sort-by">Sort by</li>
+                        <li>
+                           <select class="classic" style="height:35px" name="proptype" [(ngModel)]="proptype" (ngModelChange)="clearFilter(proptype)">
+                              <option value ='proptype'>Property type</option>
+                              <option value ='Commercial'>Commercial</option>
+                              <option value = 'Residential'>Residential</option>
+                           </select>
+                           <!-- <select name="num" [(ngModel)]="number">
+                                 <option *ngFor="let n of numbers" [value]="n">{{n}}</option>
+                               </select> -->
+                        </li>
+                        <li class="form-group searchbtn" style="width:380px">
+                           <div class="input-group">
+                              <input type="text" name="search" [(ngModel)]="filter" style="border-style: solid;
+                                 border-width: 1px 0 1px 1px;
+                                 border-color:black;height:34px;border-radius:0" class="form-control input-sm box" name="firstName" placeholder="Search Location, Project or Landmark">
+                              <div class="input-group-append" style="height:34px;">
+                                 <button class="btn btn-primary" style="background-color: #fff2ea;border-width: 1px 1px 1px 0;
+                                 border-color:black;color:black;border-radius: 0;"> <span class="fa fa-search"></span></button>  
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+
+                      
+            </div>
+
+            <div class="col-md-12 tablelist">
+                  <table class="table" >
+                        <thead>
+                           <th [class.active]="order === 'id'"
+                           (click)="setOrder('propertyid')">Property ID <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>
+
+                           <th [class.active]="order === 'surveyor'"
+                           (click)="setOrder('surveyor')" >Surveyor <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>
+
+                              <th [class.active]="order === 'builder'"
+                              (click)="setOrder('builder')" >Builder <span [hidden]="reverse">↓</span
+                                 ><span [hidden]="!reverse">↑</span></th>  
+
+                           <th [class.active]="order === 'project'"
+                           (click)="setOrder('project')">Project <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>
+
+                           <th [class.active]="order === 'projecttype'"
+                           (click)="setOrder('projecttype')">Project type <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>   
+                           
+                           <th [class.active]="order === 'Units'"
+                           (click)="setOrder('Units')">Units <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>
+
+                           <th [class.active]="order === 'floors'"
+                           (click)="setOrder('floors')">Total Floors <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>
+
+                           <th [class.active]="order === 'Added_date'"
+                           (click)="setOrder('Added_date')"> Updated Date <span [hidden]="reverse">↓</span
+                              ><span [hidden]="!reverse">↑</span></th>
+                        </thead>
+                        <tbody>
+                           <!-- <tr *ngFor="let policy of table  | orderBy: order:reverse| paginate: { itemsPerPage: 8, currentPage: p, totalItems: total}  | filter:filter; let i = index">
+                              <td style="font-weight:700;padding-left:40px">{{policy.propertyid}}</td>
+                              <td (click)="propertydetail(policy)">{{policy.surveyor}}</td>
+                              <td>{{policy.builder}}</td>
+                              <td style="font-weight:700">{{policy.project}}</td>
+                              <td>{{policy.projecttype}}</td>
+                             
+                              <td>{{policy.Units}}</td>
+                              <td style="padding-left:40px">{{policy.floors}}</td>
+                              <td>{{policy.Added_date}}</td>
+                              <td style="text-align: center" (click)="datapolicy(policy)"><img src= "/assets/image/location.svg" alt="" style="width: 17px;
+                                 height: 21px;
+                                 object-fit: contain;
+                                 opacity: 0.79;"></td>
+                              </tr> -->
+
+                   <tr *ngFor="let policy of table  | orderBy: order:reverse| paginate: { itemsPerPage: 5, currentPage: p, totalItems: total}  | filter:filter; let i = index">
+                              <td style="font-weight:700;padding-left:40px">{{policy.propCode}}</td>
+                              <td (click)="propertydetail(policy)" style="text-decoration: underline;cursor: pointer;">{{policy.surveyor |titlecase}}</td>
+                              <td>{{policy.builder|titlecase}}</td>
+                              <td style="font-weight:700">{{policy.project_name|titlecase}}</td>
+                              <td>{{policy.prop_type|titlecase}}</td>
+                             
+                              <td>{{policy.TotalUnit}}</td>
+                              <td style="padding-left:40px">{{policy.TotalFloor}}</td>
+                              <td>{{policy.date | date}}</td>
+                              <td style="text-align: center" (click)="datapolicy(policy)"><img src= "/assets/image/location.svg" alt="" style="width: 17px;
+                                 height: 21px;
+                                 object-fit: contain;
+                                 opacity: 0.79;"></td>
+                              </tr> 
+                        </tbody>
+                     </table>
+                    <pagination-controls (pageChange)="p = $event" style="float:right;margin-top:10px"></pagination-controls>
+               
+            </div>
+
+      
+         </div>
+      </div>
+
+    
+    
+
+
+   </div>
+</div>
